@@ -1,0 +1,53 @@
+Patteren question 
+
+n= 4 or 
+
+*
+* *
+* * *
+* * * *
+
+logic 
+
+let n = 4;
+for (let i = 1; i <= n; i++) {
+    let print ='';
+    for (let j = 1; j <= i; j++) {
+       print+="* ";
+    }
+    console.log(print); // Move to the next line after each row
+}
+
+n= 4 or 
+
+0
+0 0
+0 0 0
+0 0 0 0
+
+let n = 4;
+for (let i = 1; i <= n; i++) {
+    let print ='';
+    for (let j = 1; j <= i; j++) {
+       print+="0 ";
+    }
+    console.log(print); // Move to the next line after each row
+}
+
+000000
+000000
+000000
+000000
+000000
+
+ let rows = 5;
+ let col= 6;
+ 
+for (let i = 1; i <=rows; i++) {
+    let print ='';
+    for (let j = 1; j <=col; j++) {
+       print+="0";
+    }
+    console.log(print); // Move to the next line after each row
+}
+

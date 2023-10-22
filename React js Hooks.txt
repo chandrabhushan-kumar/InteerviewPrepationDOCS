@@ -1,0 +1,296 @@
+1.React Hooks
+
+Ans - Hooks used react version 16.8 or higher
+
+It allows you to use state and other React features without writing a class. Hooks are the functions which "hook into" React state and lifecycle features from function components. It does not work inside classes.
+
+Hooks are backward-compatible, which means it does not contain any breaking changes. Also.
+
+2.Rules of Hooks
+
+There are 3 rules for hooks:
+
+Hooks can only be called inside React function components.
+Hooks can only be called at the top level of a component.
+Hooks cannot be conditional.
+
+
+
+3.Hooks state (UseState)
+
+Hook state is the new way of declaring a state in React app. Hook uses useState() functional component for setting and retrieving state.
+
+The useState returns a pair where the first element is the current state value/initial value, and the second one is a function which allows us to update it. After that, we will call this function from an event handler or somewhere else. The useState is similar to this.setState in class. 
+
+					or 
+					
+ useState hook is a function which is used to store state value in a functional component. It accepts an argument as the initial value of the state. It returns an array with 2 elements. First element is the current value of state. Second element is a function to update the state
+
+syntax : const [intialization , function ] = useState("assign by default value") 
+
+							oR
+
+UseState holds two state of the values cnt state & updated state
+
+4. useEffect() - useEffect is uesd to fetching the data & updating the data
+useEffect accepts two arguments. The second argument is optional.
+
+
+
+useEffect(<function>, <dependency>)
+
+syntax - useEffect(()=>{
+
+}) - No dependcy pass it will run  at every render
+
+ useEffect(()=>{
+
+},[]) - empty array depency, it will run only one first render  
+
+ useEffect(()=>{
+
+},[state,props]) - runs on the first render and any time when depency values changes.
+
+CleanupFunction -   
+
+5.useContext - (4-9)
+   it is used to manage state globally
+
+
+6.UseReducer() - it is same as useState(); 
+
+it is also used for state management, it is used for large application for manageing the state
+it is uesd for complex state mangement logic
+
+syntax : const [state , dispatch] = useReducer(reducer,intialValue)
+
+What is reducer 
+it is a functions its accept two arguments (current state and action)
+
+disptch  work with actions
+
+Ex - 
+const initialState = {count: 0};
+
+  function reducer(state, action) {
+ switch (action.type) {
+ case 'increment':
+ return {count: state.count + 1};
+ case 'decrement':
+ return {count: state.count - 1};
+ default:
+ throw new Error();
+ }
+}
+function Counter({initialState}) {
+ const [state, dispatch] = useReducer(reducer, initialState);
+ return (
+ <>
+ Count: {state.count}
+ <button onClick={() => dispatch({type: 'increment'})}>+</button>
+ <button onClick={() => dispatch({type: 'decrement'})}>+</button>
+ </>
+ );
+	
+ 
+
+
+
+7.UseRef() - it is used to directly manipulate DOM
+
+Ex- 
+
+import { useRef } from "react";
+function TextInput() {
+ const inputRef = useRef(null);
+ const onBtnClick = () => inputRef.current.focus();
+ return (
+ <>
+ <input ref={ref} />
+ <button onClick={onBtnClick}>Focus the text input</button>
+ </>
+ )
+}
+
+
+8.useLayoutEffect() -useLayoutEffect runs syncronesly after a render but before the screen is updated
+
+import { useRef, useLayoutEffect } from "react";
+
+function ColoredComponent({color}) {
+ const ref = useRef();
+
+ useLayoutEffect(() => {
+ const refColor = ref.current.style.color;
+ console.log(`${refColor} will always be the same as ${color}`);
+ ref.current.style.color = "rgba(255,0,0)";
+ }, [color]);
+
+ useEffect(() => {
+ const refColor = ref.current.style.color;
+ console.log(`but ${refColor} can be different from ${color} if you play with the DOM`);
+ }, [color]);
+
+ return (
+ <div ref={ref} style={{ color: color }}>
+ Hello React hooks !
+ </div>
+ );
+}
+
+
+9.useMemo() - The useMemo is a hook used in the functional component of react that returns a memoized value.
+
+it is uesd for performane enhnced in our application .This conecpt will be used with component name for avoiding unwanted rendering in our application  
+
+syntax - 
+
+const memoizedValue = useMemo(functionThatReturnsValue,arrayDependencies)
+
+ex - 
+
+import React, {useState,useMemo} from 'react';
+ 
+function App() {
+  const [number, setNumber] = useState(0)
+  // Using useMemo
+  const squaredNum = useMemo(()=> {
+    return squareNum(number);
+  }, [number])
+  const [counter, setCounter] = useState(0);
+ 
+ // Change the state to the input
+  const onChangeHandler = (e) => {
+    setNumber(e.target.value);
+  }
+   
+  // Increases the counter by 1
+  const counterHander = () => {
+    setCounter(counter + 1);
+  }
+  return (
+    <div className="App">
+      <h1>Welcome to Geeksforgeeks</h1>
+      <input type="number" placeholder="Enter a number"
+          value={number} onChange={onChangeHandler}>
+      </input>
+       
+      <div>OUTPUT: {squaredNum}</div>
+      <button onClick= {counterHander}>Counter ++</button>
+      <div>Counter : {counter}</div>
+    </div>
+  );
+}
+ 
+// function to square the value
+function squareNum(number){
+  console.log("Squaring will be done!");
+  return Math.pow(number, 2);
+}
+ 
+export default App;
+
+
+10.useCallback() - The useCallback is a hook used in the functional component of react that returns a memorized function
+
+optimizing the performance of functional components by preventing unnecessary re-creation of functions on each render.
+It's particularly useful when passing callbacks as props to child components, as it can help in reducing unnecessary re-renders.
+
+syntax - 
+
+const handleClick = useCallback(() => {
+    console.log('Button clicked');
+  }, []);
+
+Ex-
+
+Step -1 
+
+ 
+
+import ParentComponent from "./components/ParentComponent";
+
+function App() {
+  return (
+    <div className="App">
+      <ParentComponent />
+    </div>
+  );
+}
+
+export default App;
+
+step -2 
+
+
+import React,{memo} from 'react';
+function Count(props) {
+    console.log("Count rendering");
+    return (
+        <div>
+            {props.text} is {props.count}
+        </div>
+    );
+}
+export default memo (Count);
+
+import React,{memo} from 'react';
+function Title() {
+    console.log ("Title Rendering");
+    return (
+        <div>
+            <h2> useCallBack hook</h2>
+        </div>
+    );
+}
+export default  memo (Title);
+
+
+step 3 
+
+
+import React, {useState,useCallback} from 'react';
+import Title from './Title';
+import Count from './Count';
+function ParentComponent() {
+    const [age, setAge] = useState(25);
+    const [salary, setSalary] = useState(25000)
+   const incrementAge = useCallback(() => {
+   setAge(age + 1);
+   }, [age]);
+
+ const incrementSalary = useCallback(() => {
+   setSalary(salary + 1000);
+ }, [salary]);	
+
+    return (
+        <div>
+          <Title/>
+          <Count text="age" count={age} />
+          <Button handleClick={incrementAge}>Increment my age</Button>
+          <Count text="salary" count={salary} />
+          <Button handleClick={incrementSalary}>Increment my salary</Button>
+        </div>
+    );
+}
+export default ParentComponent;
+
+11.customHooks() 
+Custom Hooks in react is a JavaScript function whose name starts with "use", and they may call other Hooks.
+
+
+12.useImperativeHandle () -
+
+
+13 UseForwadingRef -
+ 
+
+
+
+ 
+
+What is memoization
+What is Deep copy and shallow copy
+What is code splitting in React
+What is React fiber
+

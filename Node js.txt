@@ -1,0 +1,22 @@
+Steps for create nodejs project
+
+REST API Project - Sequence of Events
+
+1) mkdir <projectname>
+2) cd <projectname>
+3) npm init 
+4) press Enter key until package.json is created
+5) npm install --save express morgan mongoose body-parser
+6) sudo npm install -g nodemon 
+7) create 2 files :=>   app.js & server.js 
+8) copy-paste the above given 2 files 
+9)  mkdir api & cd api 
+11) create 3 files:=>  model.js, controller.js, routes.js 
+12) add routes.js in app.js 
+13)import model in controller and contoller in routes.js and call routes in app.js
+
+Note = changed package.json file  below test add this line 
+
+ "start": "nodemon server.js"
+
+

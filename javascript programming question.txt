@@ -1,0 +1,67 @@
+1. Given string,reverse each word in the sentense
+
+let str = "sara jaha se acha"
+
+let savedStr = str.split(" ").map(function (word) {
+    return word.split("").reverse().join("")
+    
+})
+let finalStr = savedStr.join(" ")
+console.log(finalStr)
+
+2.Find the duplicates in a given array
+
+let myArray = [1, 2, 3, 4, 5, 3, 6, 3, 2, 5, 8, 9];
+
+function findDuplicates(array) {
+  return array.filter((item, index) => array.indexOf(item) !== index);
+}
+
+const duplicates = findDuplicates(myArray);
+console.log(duplicates);
+
+3. Make this work 
+
+duplicates = [1,2,3,4,5] o/p - [1,2,3,4,5,1,2,3,4,5]
+
+function findDuplicates(array) {
+  return array.concat(array);
+}
+
+const duplicates = findDuplicates([1,2,3,4,5])
+console.log(duplicates)
+
+4.Reverse Number
+
+let num = [21]
+function reverseNumber(num){
+    console.log(num)
+  return  Number(num.toString().split("").reverse().join(""))
+    
+}
+const revNumber = reverseNumber(num)
+console.log(revNumber)
+
+2nd meyhod 
+
+let num = [12345]
+function reverseNumber(num){
+  var rev = 0;
+  
+  while(num > 0 ){
+      let rem = num%10;
+      rev = rev*10+rem;
+      num = Math.floor(num/10)
+  }
+  return rev;
+    
+}
+const revNumber = reverseNumber(num)
+console.log(revNumber)
+
+5.Integer Array
+(6, 4, 10, 3, 0, 1)
+SORT THIS ARRAY
+Two Pre Conditions
+1. You cannot use another array. Sort within the same array.
+2. You cannot use any pre-defined SORT methods. Write your own.

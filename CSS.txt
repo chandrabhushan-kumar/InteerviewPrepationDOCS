@@ -1,0 +1,3 @@
+What is CSS
+
+Ans - Css stands for cascading style sheet.

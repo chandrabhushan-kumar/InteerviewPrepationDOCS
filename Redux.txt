@@ -1,0 +1,139 @@
+Resource link 
+
+1.https://www.youtube.com/watch?v=GGxK3oKimLA&list=PLZjjdd9-SJS0UiiJ0-dYk_PpI5GjYQ-Eb
+
+2.https://www.youtube.com/watch?v=X7Zop1c2gVI&list=PLUVqY59GNZQMYJgEO3KWXkGcd3JSEfUst
+ 
+3 https://www.youtube.com/watch?v=NqzdVN2tyvQ 
+
+What is Redux
+
+Ans - A container where we can store whole application data so we call it state management
+
+Redux follows a unidirectional data flow, where the components of the application dispatch actions to the store, 
+and the store triggers reducers to update the state. The updated state is then passed back to the components, which re-render with the new data.
+
+Overall, Redux simplifies state management by providing a clear and structured way to handle state changes, 
+especially in large applications where the state can become complex and challenging to manage using traditional methods.
+      
+Data flow in redux
+
+Four pilors
+
+1.Action  - collect data from api or component 
+
+2.Reducer - get data from action and send to store
+
+3.store - state of complete application 
+
+4.view - React component.
+
+
+Note = only one store in one redux complication 
+
+Priciple of Redux 
+
+1.Single Source of Truth: 
+
+The entire state of the application is stored in a single JavaScript object known as the "store." 
+This makes it easy to understand and debug the state of the application as there is only one place where the state is managed.
+
+2. State is read-only:
+
+The state in Redux is read-only, meaning the only way to change the state is to dispatch an action. 
+The state itself should not be mutated, but instead, a new state is created with the desired changes.
+
+3.Changes are Made with Pure Functions: 
+Redux relies on pure functions called "reducers" to manage state changes. 
+A reducer takes the current state and an action as inputs and returns a new state based on the action's type and payload.
+
+
+Folder structer of redux
+
+Components
+
+Containers
+
+Service
+   Actions
+	index.js
+   Reducer 
+       reucer.js
+      root-reducer.js
+   Contants
+
+Explain useSelector
+Explain useDispatch
+What is the purpose of middleware in Redux?
+What are selectors in Redux?
+
+
+Q create multiple checkbox in react js 
+
+import React, { useState } from "react";
+
+function child() {
+  const [selectAll, setSelectAll] = useState(false);
+  const [checkboxes, setCheckboxes] = useState([
+    { id: 1, checked: false },
+    { id: 2, checked: false },
+    { id: 3, checked: false },
+    { id: 4, checked: false },
+    { id: 5, checked: false },
+    { id: 6, checked: false }
+  ]);
+
+  // Function to handle master checkbox change
+  const handleMasterCheckboxChange = () => {
+    const newSelectAll = !selectAll;
+    const newCheckboxes = checkboxes.map((checkbox) => ({
+      ...checkbox,
+      checked: newSelectAll
+    }));
+    setSelectAll(newSelectAll);
+    setCheckboxes(newCheckboxes);
+  };
+
+  // Function to handle child checkbox change
+  const handleChildCheckboxChange = (id) => {
+    const newCheckboxes = checkboxes.map((checkbox) =>
+      checkbox.id === id
+        ? { ...checkbox, checked: !checkbox.checked }
+        : checkbox
+    );
+    const newSelectAll = newCheckboxes.every((checkbox) => checkbox.checked);
+    setSelectAll(newSelectAll);
+    setCheckboxes(newCheckboxes);
+  };
+
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={selectAll}
+          onChange={handleMasterCheckboxChange}
+        />{" "}
+        Select All
+      </label>
+      {checkboxes.map((checkbox) => (
+        <div key={checkbox.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={checkbox.checked}
+              onChange={() => handleChildCheckboxChange(checkbox.id)}
+            />{" "}
+            Checkbox {checkbox.id}
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default child;
+
+Company profile 
+
+https://www.tychotechnologies.com/react-developer

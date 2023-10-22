@@ -1,0 +1,35 @@
+Priority -1 (starting date 2nd july -2023) 
+
+Vanila javascript (1 week)
+Advncence javascript  with examlpe (1 week)
+Interview question
+
+Daily 2 interview question
+
+Priority - 2 (15 days)
+
+Core React 
+Class based components
+Functional components 
+Redux 
+Inteview question
+
+Daily 2 interview question
+
+Priortiy 3 
+
+RestAPi
+Express
+mongoose
+body parser
+morgan
+mongodb
+nodejs
+Every day create minmum 1 api in nodejs 
+interview question
+
+Priority - 4
+
+DSA basic to advance
+
+

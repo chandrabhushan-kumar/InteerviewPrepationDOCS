@@ -1,0 +1,1445 @@
+=GIT password - Kumar@7841029556
+capgemini psw - Kumar@7841029556
+http://www.glarustech.com/careers.html
+https://www.avestantechnologies.com/career.html
+https://hexalytics.com/#bigdata
+https://genpact.taleo.net/careersection/iam/accessmanagement/login.jsf?redirectionURI=https%3A%2F%2Fgenpact.taleo.net%2Fcareersection%2Fsgy_external_career_section%2Fjobapply.ftl%3Fjob%3DITO071879&TARGET=https%3A%2F%2Fgenpact.taleo.net%2Fcareersection%2Fsgy_external_career_section%2Fjobapply.ftl%3Fjob%3DITO071879
+https://www.capgemini.com/in-en/careers/
+https://careers.valethi.com/jobs/Careers/57485000003130324/Senior-Developer--Software?source=CareerSite
+https://github.com/akashyap2013/MERN_Login_App_with_ResetEmail
+https://career.infosys.com/joblist?type=ALL&countrycode=IN&companyhiringtype=IL
+https://krb-sjobs.brassring.com/TGnewUI/Search/Home/Home?partnerid=26059&siteid=5016#home
+https://whataboutcoding.com/redux-toolkit-tutorial/
+https://react-redux.js.org/introduction/getting-started
+https://redux.js.org/tutorials/quick-start
+
+What is javascript 
+
+Ans : javascript is interpreted client side,event bases object oriented programming language
+      JavaScript is a text-based programming language used both on the client-side and server-side .
+      JavaScript was developed by Brendan Eich in 1995, which appeared in Netscape, a popular browser of that time.
+      javascript is casesensitive language
+      javascript is a synchronus & single thread	
+Advantage of javascript
+
+Speed
+Reduces load on the server
+Ease of use
+Rich Interface
+Versatility
+Extended functionality
+Interoperability
+Popularity
+Platform independence
+Powerful frameworks
+Procedural programming features
+Response to user activity
+Updates
+
+Features of javascript
+
+Light Weight Scripting language
+
+Dynamic Typing
+
+Object-oriented programming support
+
+Functional Style
+
+Platform Independent
+
+Prototype-based
+
+Interpreted Language
+
+Async Processing
+
+Client-Side Validation
+
+More control in the browser
+
+Data types in javascript 
+There are two types of data
+1. Primitive data types 
+2. Non primitive data types
+1.primitive Data types - it is holding only one values 
+
+String
+null
+number 
+undefined
+Bigint
+Boolean
+
+2. Non primitive data types - it is holding more than one values is called non primitive 
+
+Objects 
+Array
+
+Diffrence b/w null & undefined
+
+Undefined - Undefined means a variable has been declared but has yet not been assigned a value.
+
+ex - var abc ;
+
+null - null is an assignment value. It can be assigned to a variable as a representation of no value. 
+null is a special value that represents an empty or unknown value. 
+
+Ex - let abc = null;
+
+Variable in javascript
+
+Ans - There are 3 ways to declare a JavaScript variable:
+
+	Using var
+	Using let
+	Using const
+
+Names can contain letters, digits, underscores, and dollar signs.
+
+var declarations are globally scoped or function/locally scoped.
+var is function scoped when it is declared within a function. 
+This means that it is available and can be accessed only within that function.
+
+let
+A block is a chunk of code bounded by {}. A block lives in curly braces. Anything within curly braces is a block.
+
+Variables defined with let cannot be Redeclared.
+Variables defined with let must be Declared before use.
+
+Variables defined with let have Block Scope. 
+
+Const  - can not assign the value again
+
+Note - javascript is a case sensitive langage 
+
+javascript operaters
+
+Javascript Arthematic operator;	
+
+Operator	Description
++	        Addition
+-	        Subtraction
+*	        Multiplication
+**	        Exponentiation (ES2016)
+/	        Division
+%	        Modulus (Division Remainder)
+++	        Increment
+--	        Decrement  
+
+JavaScript Comparison Operators
+
+Operator	Description
+==	equal to
+===	equal value and equal type
+!=	not equal
+!==	not equal value or not equal type
+>	greater than
+<	less than
+>=	greater than or equal to
+<=	less than or equal to
+?	ternary operator
+
+JavaScript Logical Operators
+
+Operator	Description
+&&	logical and
+||	logical or
+!	logical not
+
+JavaScript Type Operators
+
+Operator	Description
+typeof	Returns the type of a variable
+instanceof	Returns true if an object is an instance of an object type
+
+JavaScript Bitwise Operators
+
+Operator Description	
+&	AND	
+|	OR	
+~	NOT	
+^	XOR	
+<<	left shift	
+>>	right shift	
+>>>	unsigned right shift	
+
+Expalin switch statements
+
+The switch statement executes a block of code depending on different cases.
+
+The switch statement is a part of JavaScript's "Conditional" Statements, which are used to perform different actions based on different conditions. 
+Use switch to select one of many blocks of code to be executed. This is the perfect solution for long, nested if/else statements.
+
+The switch statement evaluates an expression. The value of the expression is then compared with the values of each case in the structure.
+ If there is a match, the associated block of code is executed.
+
+The switch statement is often used together with a break or a default keyword (or both). These are both optional:
+
+The break keyword breaks out of the switch block. This will stop the execution of more execution of code and/or case testing inside the block.
+ If break is omitted, the next code block in the switch statement is executed.
+
+The default keyword specifies some code to run if there is no case match.
+There can only be one default keyword in a switch. Although this is optional, it is recommended that you use it, as it takes care of unexpected cases.
+
+Syntax
+switch(expression) {
+  case n:
+    code block
+    break;
+  case n:
+    code block
+    break;
+  default:
+    default code block
+}
+
+Explain if else statments
+
+The if/else statement executes a block of code if a specified condition is true. If the condition is false, another block of code can be executed.
+
+The if/else statement is a part of JavaScript's "Conditional" Statements, which are used to perform different actions based on different conditions.
+
+In JavaScript we have the following conditional statements:
+
+Use if to specify a block of code to be executed, if a specified condition is true
+Use else to specify a block of code to be executed, if the same condition is false
+Use else if to specify a new condition to test, if the first condition is false
+Use switch to select one of many blocks of code to be executed
+
+Syntax
+
+The if statement specifies a block of code to be executed if a condition is true:
+
+if (condition) {
+  // block of code to be executed if the condition is true
+}
+The else statement specifies a block of code to be executed if the condition is false:
+
+if (condition) {
+  // block of code to be executed if the condition is true
+} else {
+  // block of code to be executed if the condition is false
+}
+The else if statement specifies a new condition if the first condition is false:
+
+if (condition1) {
+  // block of code to be executed if condition1 is true
+} else if (condition2) {
+  // block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  // block of code to be executed if the condition1 is false and condition2 is false
+}
+Expain loops 
+
+The JavaScript loops are used to iterate the piece of code using for, while, do while or for-in loops. It makes the code compact. It is mostly used in array.
+
+There are four types of loops in JavaScript.
+
+for loop
+
+The JavaScript for loop iterates the elements for the fixed number of times. It should be used if number of iteration is known. The syntax of for loop is given below.
+
+for (initialization; condition; increment)  
+{  
+    code to be executed  
+}  
+
+while loop
+
+The JavaScript while loop iterates the elements for the infinite number of times. It should be used if number of iteration is not known. The syntax of while loop is given below.
+
+while (condition)  
+{  
+    code to be executed  
+}  
+
+
+do-while loop 
+
+The JavaScript do while loop iterates the elements for the infinite number of times like while loop. But, 
+code is executed at least once whether condition is true or false. The syntax of do while loop is given below.
+
+do{  
+    code to be executed  
+}while (condition);
+
+for-in loop
+
+Expain string & its method (3 methods per day)
+
+
+1.slice(start, end) - 
+
+slice() extracts a part of a string and returns the extracted part in a new string.
+
+The method takes 2 parameters: start position, and end position (end not included).
+
+2.substring(start, end)
+
+substring() is similar to slice().
+
+The difference is that start and end values less than 0 are treated as 0 in substring().
+
+3.substr(start, length) 
+
+substr() is similar to slice().
+
+The difference is that the second parameter specifies the length of the extracted part.
+
+1.charAt() - It provides the char value present at the specified index.
+Ex- var str="Javatpoint";
+   document.writeln(str.charAt(4));
+ o/p - t
+2. charCodeAt() - It provides the Unicode value of a character present at the specified index.
+3.concat() -It provides a combination of two or more strings.
+
+4.length - The length property returns the length of a string:
+5.replace - The replace() method replaces a specified value with another value in a string:
+ex - let text = "Please visit Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");
+The replace() method does not change the string it is called on.
+
+The replace() method returns a new string.
+
+The replace() method replaces only the first match
+
+If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+
+By default, the replace() method replaces only the first match:
+
+6. replaceAll - The replaceAll() method allows you to specify a regular expression instead of a string to be replaced.
+7.toUpperCase -A string is converted to upper case with toUpperCase():
+8.toLowerCase - A string is converted to lower case with toLowerCase():
+9.trim() - The trim() method removes whitespace from both sides of a string:
+10.trimStart() - The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+11.trimEnd() - The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+12.split - A string can be converted to an array with the split() method:
+
+String search method() - 
+
+1.indexOf()-It provides the position of a char value present in the given string.
+
+2.lastIndexOf() -It provides the position of a char value present in the given string by searching a character from the last position.
+
+3 search()-It searches a specified regular expression in a given string and returns its position if a match occurs.	
+ex- var str="JavaScript is a scripting language. Scripting languages are often interpreted";
+document.writeln(str.search("scripting"));
+o/p - 16
+
+Expalin pass by value pass by reference
+
+Pass by value - Pass by value work with primmitve data types
+Any changes made to the parameter it will not affect the original value.
+
+ex - let a = 5;              ex - let a = 5;  
+     let b = a  		let b = a+5  
+
+cosole.log(a) //5           cosole.log(a) //5
+console.log(b) //5          console.log(b) //10
+
+			or 
+
+When you pass a primitive value as an argument to a function,
+a copy of that value is created and passed to the function.
+Any changes made to the parameter inside the function will not affect the original value outside the function
+
+ex - 
+
+function modifyPrimitive(value) {
+  value = 42; // This change won't affect the original value outside the function.
+}
+
+let num = 10;
+modifyPrimitive(num);
+console.log(num); // Output: 10
+
+
+
+Pass by reference - Pass by refrence work with non primitive data types
+
+you are actually passing a reference to the memory location where the object is stored. 
+This means that any modifications made to the object inside the function will affect the original object outside the function.
+ex -1
+ let obj1 = {
+"name" : "chandu,
+"psw"  : "12345"
+}
+
+let obj2 = obj1
+
+console.log(obj1) // o/p {
+"name" : "chandu,
+"psw"  : "12345"
+}
+console.log(obj2) //o/p
+ {
+"name" : "chandu,
+"psw"  : "12345"
+}
+
+ex-2 
+ let obj1 = {
+"name" : "chandu,
+"psw"  : "12345"
+}
+
+let obj2 = obj1
+
+obj2.psw ="67890"
+
+console.log(obj1) // o/p {
+"name" : "chandu,
+"psw"  : "67890"
+}
+console.log(obj2) //o/p
+ {
+"name" : "chandu,
+"psw"  : "67890"
+}
+ex -3
+
+function modifyArray(arr) {
+  arr.push(4); // This change will affect the original array outside the function.
+}
+
+let myArray = [1, 2, 3];
+modifyArray(myArray);
+console.log(myArray); // Output: [1, 2, 3, 4]
+
+Expalin Es5 features
+
+1. Use Strict - it is pointed the undefined variable with function or without function
+
+syntax - "use strict"
+
+2. trim() - it is ues to use remove white spaces
+
+3. isArray() - 
+
+4. forEach() - 
+
+5. Array map() -
+
+Explain apply call & bind
+call ,apply ,bind are predefined method in javascript
+
+call - call method helps us to changes the context of invoking function
+
+call method allows an object to use method of another object
+
+call methods is used for commas seperated
+
+ex 1 . 
+
+const persion1 = {
+  "fName" : "chandu",
+  "lName" : "kumar",
+  fullName : function(){
+    return this.fName + " " +this.lName
+    
+  }
+    
+}
+const persion2 = {
+  "fName" : "Suman",
+  "lName" : "kri"
+}
+let result = persion1.fullName.call(persion2)
+console.log(result) 
+
+ex -2 
+
+const persion1 = {
+  "fName" : "chandu",
+  "lName" : "kumar",
+  fullName : function(hometown,country){
+    return this.fName + " " +this.lName + " " + hometown + " " + country
+    
+  }
+    
+}
+const persion2 = {
+  "fName" : "Suman",
+  "lName" : "kri"
+}
+let result = persion1.fullName.call(persion2,"pune","India")
+console.log(result)
+
+apply - call & apply method both are same but in a apply method data passed in a array
+
+ex- 
+const persion1 = {
+  "fName" : "chandu",
+  "lName" : "kumar",
+  fullName : function(hometown,country){
+    return this.fName + " " +this.lName + " " + hometown + " " + country
+    
+  }
+    
+}
+const persion2 = {
+  "fName" : "Suman",
+  "lName" : "kri"
+}
+let result = persion1.fullName.apply(persion2,["pune","India"])
+console.log(result)
+
+bind () - bind metod is same as a call method only differenc is that bind method bind object in a function & returns a  function 
+it is create a copy of function 
+
+const persion1 = {
+  "fName" : "chandu",
+  "lName" : "kumar",
+  fullName : function(hometown,country){
+    return this.fName + " " +this.lName + " " + hometown + " " + country
+    
+  }
+    
+}
+const persion2 = {
+  "fName" : "Suman",
+  "lName" : "kri"
+}
+let result = persion1.fullName.bind(persion2,"pune","India")
+console.log(result())
+
+Explain Hoisting in javascript
+
+Hoisting is the default behaviour of javascript where all the variable and function declarations are moved on top.
+
+Ex-1 
+
+hoistedVariable = 3;
+console.log(hoistedVariable); // outputs 3 even when the variable is declared after it is initialized	
+var hoistedVariable;
+
+ex-2 
+
+hoistedFunction();  // Outputs " Hello world! " even when the function is declared after calling
+
+function hoistedFunction(){ 
+  console.log(" Hello world! ");
+} 
+
+Note - Variable initializations are not hoisted, only variable declarations are hoisted:
+
+var x;
+console.log(x); // Outputs "undefined" since the initialization of "x" is not hoisted
+x = 23;
+
+Note - To avoid hoisting, you can run javascript in strict mode by using “use strict” on top of the code:
+
+"use strict";
+x = 23; // Gives an error since 'x' is not declared
+var x; 
+
+Difference between “ == “ and “ === “ operators.
+
+Both are comparison operators. The difference between both the operators is that “==” is used to compare values
+ whereas, “ === “ is used to compare both values and types.
+
+Ex -
+
+var x = 2;
+var y = "2";
+(x == y)  // Returns true since the value of both x and y is the same
+(x === y) // Returns false since the typeof x is "number" and typeof y is "string"
+
+Explain closers 
+
+closure gives a access to an outer function's scope from an inner function 
+
+Ex - 1
+
+function makeFunc() {
+  const name = "Mozilla";
+  function displayName() {
+    console.log(name);
+  }
+  return displayName;
+}
+
+const myFunc = makeFunc();
+myFunc();
+
+
+
+Expain Destructuing 
+
+The destructuring assignment is an expression that makes it easy to extract values from arrays, or properties from objects, into distinct variables.
+
+There are two types of destructuring assignment expressions, namely, Array Destructuring and Object Destructuring. It can be used in the following manner :
+
+Object Destructuring 
+ex-
+
+ 1 .const employee1 = {
+    name :"chandu",
+    age :'26',
+    address :{
+        city :"samastipur",
+        state :'bihar'
+    }
+}
+const  {name,age} = employee1
+console.log(name)
+
+2. const employee1 = {
+    name :"chandu",
+    age :'26',
+    address :{
+        city :"samastipur",
+        state :'bihar'
+    }
+}
+const  {address : {city}} = employee1
+console.log(city)
+
+3. const employee = {
+    name :"chandu",
+    age :'26',
+    address :{
+        city :"samastipur",
+        state :'bihar'
+    }
+}
+function fun1(age,name){
+    console.log(`Employee name ${employee.name}`)
+}
+fun1(employee);
+
+Array Desctring
+
+ex -1 
+
+const fruit = ["apple","bananan","pineapple"]
+
+const [fruit1,fruit2] = fruit
+console.log(fruit1)
+
+Explain ES6 features 
+
+1.let and const Keywords
+2.Rest operater
+3.Spread operater
+4.Async/Await 
+5.Destructing
+6.Arrow Functions 
+7.Multi-line Strings
+8.Default Parameters
+9.Template Literals
+10.Destructuring Assignment
+11.Enhanced Object Literals
+12.Promises
+13.Classes
+14.Modules
+
+Expain map,reducer,filter 
+
+map() - map method is used for creating a new array from an existing one
+ map fucntion work with callback function it takes 3 arguments
+ex- 
+const arr1 = [2,5,7,8,9]
+const arr2 = arr1.map((element)=>{
+   return element*2;
+})
+console.log(arr2)
+
+filter () - filter method work with conditions 
+ it is also created a new array from an existing array
+Ex -
+const arr1 = [2,5,7,8,9]
+const arr2 = arr1.filter((element)=>{
+   return element%2===0;
+})
+console.log(arr2)
+
+reduce() - reduce method work with 2 paramter i.e previous & cnt it is produces single value
+
+
+ex- 
+
+const arr1 = [2,5,7,8,9]
+const arr2 = arr1.reduce((prev,curr)=>{
+  return prev+curr;
+})
+console.log(arr2) //o/p - 31
+
+Expain Spread & Rest operaor
+
+spread operaotr  - The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+
+Ex- 1
+
+ var array1 = [10, 20, 30, 40, 50];
+    var array2 = [60, 70, 80, 90, 100];
+    var array3 = [...array1, ...array2];
+   console.log(array3);
+
+ex-2
+
+ var array1 = [10, 20, 30, 40, 50];
+    var array2 = [...array1, 60];
+    console.log(array2);
+
+Rest parameter -Rest operator: The rest parameter is converse to the spread operator. while the spread operator expands elements of an iterable, 
+the rest operator compresses them. It collects several elements. In functions when we require to pass arguments but were not sure how many we have to pass, the rest parameter makes it easier. 
+
+Note: There must be only one rest operator in javascript functions.
+
+Syntax:
+
+function function_name(...arguments) {
+    statements;
+}
+
+Expain array & its method 
+
+1.toString - The JavaScript method toString() converts an array to a string of (comma separated) array values.
+ex - let arr = ["chandra","anita","komal","ranjan"]
+
+     let arr2 = arr.toString()
+     console.log(arr2) o/p - chandra,anita,komal,ranjan
+2.join () - The join() method also joins all array elements into a string.
+
+          It behaves just like toString(), but in addition you can specify the separator:
+
+         ex - let arr = ["chandra","anita","komal","ranjan"]
+
+
+        let arr2 = arr.join(" and ")
+        console.log(arr2) o/p -chandra and anita and komal and ranjan
+
+3. concat() - The concat() method creates a new array by merging (concatenating) existing arrays:
+
+ex-
+
+let arr = ["chandra","anita","komal","ranjan"]
+let arr1 = ["priya","priti","piyhu","pink"]
+
+
+let arr2 = arr.concat(arr1)
+console.log(arr2)
+
+0/p -[
+  'chandra', 'anita',
+  'komal',   'ranjan',
+  'priya',   'priti',
+  'piyhu',   'pink'
+]
+
+4. pop() - The pop() method removes the last element from an array:
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+const fruit2 = fruits.pop();
+
+console.log(fruits2) // Banana,Orange,Apple
+
+5. push () - The push() method adds a new element to an array (at the end):
+
+Ex -
+
+const fruits = ["Banana", "Orange", "Apple"];
+
+const fruit2 = fruits.push("Mango");
+
+console.log(fruits2) // Banana,Orange,Apple,Mango
+
+6. shift() - The shift() method removes the first array element and "shifts" all other elements to a lower index.
+
+7. unshift() - The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+
+8. Splice () - The splice() method in JavaScript is used to modify an array by adding or removing elements at a specified index
+		It can be used to add elements, remove elements, or both, in a single operation.
+		The splice() method modifies the original array and returns an array containing the removed elements
+
+syntax - array.splice(startIndex, deleteCount, item1, item2, ...)
+
+startIndex: The index at which to start modifying the array.
+deleteCount: The number of elements to remove from the array starting at the startIndex.
+item1, item2, ...: Optional items to add to the array at the startIndex.
+
+ex-1 
+
+let numbers = [1, 2, 3, 4, 5];
+let removed = numbers.splice(1, 2); // Removes 2 elements starting from index 1
+// numbers is now [1, 4, 5]
+// removed is [2, 3]
+
+ex-2 
+
+let fruits = ['apple', 'banana', 'cherry'];
+fruits.splice(1, 0, 'orange', 'grape'); // Inserts 'orange' and 'grape' at index 1
+// fruits is now ['apple', 'orange', 'grape', 'banana', 'cherry']
+
+9.sslice(): The slice() method in JavaScript is used to create a shallow copy of a portion of an array. 
+It doesn't modify the original array but returns a new array containing elements from the specified starting index to the specified ending index (excluding the ending index itself). 
+The original array remains unchanged.
+
+syntx - array.slice(startIndex, endIndex);
+
+startIndex: The index at which to begin extracting elements. If negative, it counts from the end of the array.
+endIndex (optional): The index at which to stop extracting elements. The slice() method goes up to, but does not include, 
+the element at this index. If omitted, the slice includes all elements from startIndex to the end of the array.
+
+ex- 
+
+const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+const slicedFruits = fruits.slice(1, 4); // Creates a new array with elements at indexes 1, 2, and 3
+// slicedFruits is ['banana', 'cherry', 'date']
+
+The slice() method is commonly used when you want to work with a specific portion of an array without altering the original array.
+
+10.indexOf() - it is uesd to find the index number of element
+
+ex- 
+
+const fruits = ['apple', 'banana', 'cherry', 'date'];
+
+const index = fruits.indexOf('cherry'); // Returns 2
+const notFoundIndex = fruits.indexOf('grape'); // Returns -1
+
+11.lastIndexOf() - it is use to find left ot right of array 
+
+es - 
+
+const fruits = ['apple', 'banana', 'cherry', 'date', 'banana'];
+
+const index = fruits.lastIndexOf('banana'); // Returns 4 (index of the last occurrence)
+const notFoundIndex = fruits.lastIndexOf('grape'); // Returns -1
+
+12. flat() - The flat() method in JavaScript is used to create a new array that's a one-dimensional flat version of a given array
+
+syntax- array.flat([depth]);
+
+ex- 
+
+const nestedArray = [1, [2, [3, 4]]];
+const flatArray = nestedArray.flat(); // Flattens to [1, 2, [3, 4]]
+
+const deeplyNestedArray = [1, [2, [3, [4]]]];
+const deeplyFlatArray = deeplyNestedArray.flat(Infinity); // Flattens to [1, 2, 3, 4]
+
+13. lengh () - it is uesd to find the lenght of array
+
+14 forEach() - The forEach() method in JavaScript is used to iterate over the elements of an array and execute a provided callback function once for each element.
+syntax - 
+
+array.forEach(callback(currentValue, index, array), thisArg);
+
+ex - 
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((number, index) => {
+  console.log(`Element at index ${index} is ${number}`);
+});
+
+14.find() - This method is use to find the first matched of array element 
+
+15. findIndex() - This method is uesd to find first matched of array index
+
+16.Sort() - This method is ues to sort the array element by alphabetcally
+
+ex - let nums = [1,2,5,3,4]
+ let sortedarray = nums.sort();
+console.log(sortedarray) o/p - [ 1, 2, 3, 4, 5 ]
+
+let num = [1,2,11,5,4,]
+
+let sorted = num.sort((a,b)=>a-b)
+console.log(sorted) o/p -[ 1, 2, 4, 5, 11 ]
+
+17.some() - 
+
+18.every() - 
+
+19.includes() - 
+20.fill() - 
+21.copyWithIn()-
+22.reverse() -
+23.form () - 
+24isArray() - 
+25.valueOf() - 
+26.entries() - 
+27.key() - 
+28values()-
+29.reduceRight()-
+30.flatMap()-
+
+what is prototype chain 
+
+Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+
+ex - 
+
+what is cookies
+
+A cookie is generally a small data that is sent from a website and stored on the user’s machine by a web browser that was used to access the website. 
+Cookies are used to remember information for later use and also to record the browsing activity on a website.
+
+A cookie is a piece of data that is stored on our computer to be accessed by  browser.
+Cookies are saved as key/value pairs. For exammple
+
+The simplest way of creating a cookie using JavaScript is as below:
+
+document.cookie = "key1 = value1; key2 = value2; expires = date";
+
+How would you read a cookie? 
+
+Reading a cookie using JavaScript is also very simple. 
+We can use the document.cookie string that contains the cookies that we just created using that string.
+
+The document.cookie string keeps a list of name-value pairs separated by semicolons, where ‘name’ is the name of the cookie, and ‘value’ is its value.
+ We can also use the split() method to break the cookie value into keys and values.
+
+ 
+How would you delete a cookie?
+
+To delete a cookie, we can just set an expiration date and time. 
+Specifying the correct path of the cookie that we want to delete is a good practice since some browsers won’t allow the deletion of cookies unless there is a clear path that tells which cookie to delete from the user’s machine.
+
+function delete_cookie(name) {
+
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+
+}
+
+
+
+JavaScript Event Handlers
+
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+
+Explain Promises
+
+Promises in JavaScript are a way to handle asynchronous operations in a more organized and structured manner
+
+There are 3 states
+
+Pending: The initial state when a Promise is created. It represents that the operation is in progress, and the result is not available yet.
+
+Fulfilled (Resolved): The state when the asynchronous operation is completed successfully. The Promise transitions to this state, and we can access the result using .then().
+
+Rejected: The state when the asynchronous operation encounters an error. The Promise transitions to this state, and we can handle the error using .catch().
+ syntax - 
+
+const myPromise = new Promise((resolve, reject) => {
+  // Asynchronous operation here
+  // If successful, call resolve(result)
+  // If there's an error, call reject(error)
+});
+
+Explain types of functions 
+
+There are 3 types of functions in javascript
+
+1.Named function
+2.Anonymous function
+3.Immediately invoked function expression.
+
+
+
+Explain annonamusion function
+
+Anonynous function is a arrow function  or nameless function, fat arrow function
+
+synatx - ()=>{statements}
+
+
+
+Expain async & await
+
+async and await are keywords in JavaScript used to work with asynchronous code in a more synchronous and readable manner.
+
+async Function:
+
+You declare a function as async by placing the async keyword before the function keyword in its definition.
+
+An async function always returns a Promise implicitly. 
+
+This Promise will be fulfilled with the value that the function returns or rejected with an error thrown from within the function.
+Inside an async function, We can use the await keyword to pause the execution until a Promise is settled (fulfilled or rejected). 
+
+This allows you to write asynchronous code that looks more like synchronous code.
+
+syntax - 
+
+async function fetchData() {
+  // Asynchronous code here
+  const data = await fetchSomeData(); // Pause until fetchSomeData() completes
+  return data; // This will be wrapped in a Promise and fulfilled
+}
+
+await Expression:
+
+The await keyword is used to indicate that a Promise should be awaited inside an async function.
+
+When you use await, it suspends the execution of the async function until the awaited Promise is settled.
+
+You can use await with any function that returns a Promise, including native browser APIs (e.g., fetch), custom functions returning Promises, or other async functions.
+
+async function example() {
+  const result = await someAsyncFunction();
+  console.log(result); // The result of someAsyncFunction()
+}
+
+
+Error Handling:
+
+We can handle errors in async functions using try...catch. If an awaited Promise is rejected, the control will jump to the nearest catch block.
+
+async function fetchData() {
+  try {
+    const data = await fetchSomeData();
+    return data;
+  } catch (error) {
+    console.error(error); // Handle the error
+    throw error; // Rethrow the error if needed
+  }
+}
+
+async Arrow Functions:
+
+const fetchData = async () => {
+  // Asynchronous code here
+};
+
+You can also use async with arrow functions.
+
+Promise.all() with async and await:
+
+To execute multiple asynchronous operations in parallel, you can use Promise.all() along with await.
+
+async function fetchAllData() {
+  const [data1, data2] = await Promise.all([fetchData1(), fetchData2()]);
+  return [data1, data2];
+}
+
+async and await simplify the handling of asynchronous code, making it more readable and maintainable. 
+They have become the preferred way to work with Promises in modern JavaScript development.
+
+Expain Events;
+
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+
+Ex - onClick,onmouseover,onBlur,onLoad
+
+Explain shallCopy & Deep Copy
+
+Shallow Copy - 
+Shallow Copy stores the references of objects to the original memory address.
+Shallow Copy reflects changes made to the new/copied object in the original object
+A shallow copy is faster.
+
+Deep Copy - 
+ Deep copy stores copies of the object's value
+ Deep copy doesn't reflect changes made to the new/copied object in the original object
+ Deep copy is comparatively slower.
+
+Expain  Event capturing & event bubbling 
+
+https://www.javatpoint.com/event-bubbling-and-capturing-in-javascript
+
+what is Temperal dead zone 
+
+https://www.educative.io/answers/what-is-the-temporal-dead-zone-in-javascript
+
+Expalin callback  
+
+https://www.simplilearn.com/tutorials/javascript-tutorial/callback-function-in-javascript#:~:text=A%20JavaScript%20callback%20is%20a,called%20as%20a%20callback%20function.
+
+Implicit Type Coercion in javascript (in detail with examples)
+
+When the value of one data type is automatically converted into another data type, it is called Implicit type coercion in javascript.
+
+Example: 
+
+var x = 4;
+
+var y = "4";
+
+x + y // Returns "44" 
+
+Expain higher order function
+
+Higher-order functions are the functions that take functions as arguments and return them by operating on other functions
+
+Self Invoking Functions
+
+Self Invoking Functions is an automatically invoked function expression followed by (), 
+where it does not need to be requested. Nevertheless, the declaration of the function is not able to be invoked by itself. 
+
+currying in JavaScript (with examples)
+
+In JavaScript, when a function of an argument is transformed into functions of one or more arguments is called Currying.
+
+Example:
+
+function add (a) {
+
+  return function(b){
+
+    return a + b;
+
+  }
+
+}
+
+add(3)(4) 
+
+Types of errors in javascript
+Javascript has two types of errors, Syntax error, and Logical error.
+
+What is memoization?
+In JavaScript, when we want to cache the return value of a function concerning its parameters, it is called memoization. 
+It is used to speed up the application especially in case of complex, time consuming functions. 
+
+What is BOM?
+BOM is the Browser Object Model where users can interact with browsers that is a window, an initial object of the browser. 
+The window object consists of a document, history, screen, navigator, location, and other attributes. 
+Nevertheless, the window’s function can be called directly as well as by referencing the window.
+
+What are generator functions?
+Generator functions are declared with a special class of functions and keywords using function*. 
+It does not execute the code, however, it returns a generator object and handles the execution.
+
+What are object prototypes? 
+Ex- 
+1.
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+const person1 = new Person();
+const person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
+
+what is event loop 
+
+https://www.geeksforgeeks.org/what-is-an-event-loop-in-javascript/
+
+Explain Dates
+
+
+Explain DOM & BOM 
+Explain Debouncing & thortling 
+what is currying
+
+Expain functions 
+Expain return
+Expain Global variable V/s local varible
+Expain pure functions
+Explain Prototype
+
+
+Explain function expression
+explain objects 
+Explain timer function & its method
+
+
+Explain numbers
+Explain math
+
+
+
+
+
+
+
+
+
+
+Explain Currying
+How do you handle asynchronous operations in JavaScript? Briefly explain the concepts of callbacks, Promises, and async/await.
+How would you check the data type of a variable in JavaScript?
+t
+How do you create and use functions in JavaScript?
+What is the purpose of the this keyword in JavaScript? How does it behave in different contexts?
+What are arrow functions, and how do they differ from regular functions?
+How do you handle errors in JavaScript? Explain the try...catch statement.
+
+What are modules in JavaScript? How do they help in organizing code?
+What are the different ways to create objects in JavaScript, and what is the difference between them?
+what is memorizied in javascipt
+Explain for & forEach
+
+
+
+
+Find the duplicates array in a using javascript
+
+const myArray = [1, 2, 3, 2, 4, 5, 5,4, 6];
+
+function findDuplicates(array) {
+  return array.filter((item, index) => array.indexOf(item) !== index);
+}
+
+
+const duplicates = findDuplicates(myArray);
+
+console.log("Duplicate values: ", duplicates); // Output: [2, 4,5]
+
+
+
+
+
+
+
+
+
+
+
+Programes
+
+1. find the sum of const obj = {'A': 8,'B': 15,'C': 2,'D': 5,'E': 10}
+
+const obj = {'A': 8, 'B': 15, 'C': 2, 'D': 5, 'E': 10};
+
+function sumObjectValues(obj) {
+  let sum = 0;
+  for (let i in obj) {
+    sum += obj[i];
+  }
+  return sum;
+}
+
+const result = sumObjectValues(obj);
+console.log(result); // Output: 40
+
+2.find the duplicate and uniques number const arr = [1,5,9,1,5,3,1]
+
+const arr = [1, 5, 9, 1, 5, 3, 1];
+
+function findDuplicates(arr) {
+  const numOccurrences = {};
+  const duplicates = [];
+
+  arr.forEach((num) => {
+    if (numOccurrences[num]) {
+      if (!duplicates.includes(num)) {
+        duplicates.push(num);
+      }
+    } else {
+      numOccurrences[num] = 1;
+    }
+  });
+
+  return duplicates;
+}
+
+const duplicateNumbers = findDuplicates(arr);
+console.log("Duplicate Numbers:", duplicateNumbers); // Output: Duplicate Numbers: [1, 5]
+
+3.Write a function fib() that takes an integer n and returns the series up to nth Fibonacci number.
+
+function fib(n) {
+  if (n <= 0) {
+    return [];
+  } else if (n === 1) {
+    return [0];
+  } else if (n === 2) {
+    return [0, 1];
+  } else {
+    const series = [0, 1];
+    for (let i = 2; i < n; i++) {
+      series.push(series[i - 1] + series[i - 2]);
+    }
+    return series;
+  }
+}
+
+
+const n = 6;
+const fibonacciSeries = fib(n);
+console.log(fibonacciSeries); 
+
+4.Print the first “n” prime numbers. N is anything a user might enter.
+
+function isPrime(number) {
+  if (number <= 1) {
+    return false;
+  }
+  if (number <= 3) {
+    return true;
+  }
+  if (number % 2 === 0 || number % 3 === 0) {
+    return false;
+  }
+
+  for (let i = 5; i * i <= number; i += 6) {
+    if (number % i === 0 || number % (i + 2) === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function generatePrimes(n) {
+  const primes = [];
+  let number = 2;
+
+  while (primes.length < n) {
+    if (isPrime(number)) {
+      primes.push(number);
+    }
+    number++;
+  }
+
+  return primes;
+}
+
+const n = parseInt(prompt("Enter the value of n:"));
+const primeNumbers = generatePrimes(n);
+console.log(`The first ${n} prime numbers are: ${primeNumbers.join(', ')}`);
+
+function abc(){
+    for (let i =0;i<5;i++)
+    setTimeout(()=>{
+       console.log(i) 
+    },i*3000)
+}
+abc();
+o/p - 0,1,2,3,4
+
+function abc(){
+    for (var i =0;i<5;i++)
+    setTimeout(()=>{
+       console.log(i) 
+    },i*3000)
+}
+abc();
+o/p - 5,5,5,5,5
+
+5.Create an React component which will have a progress bar. It will increment after 1 secs. 
+The progress bar will keep on incrementing till the width of the page is met and then it will stop incrementing.
+
+4.Find the next palindrome number. If I pass any integer value to function it should return the next palindrome number.
+
+var arr=[22,44,11,23,12,45,66,78];
+
+let data=["cat","qwerty","qwtyre" ,"tac", "bat", "tab", "acc", "ac", "ca", "AAc","god","dog","AaAc","good","adog" ]
+output =[
+    [ 'cat', 'tac' ],
+    [ 'qwerty', 'qwtyre' ],
+    [ 'bat', 'tab' ],
+    [ 'ac', 'ca' ],
+    [ 'god', 'dog' ]
+   ]
+
+function findHighestNumber(){
+
+print only key 
+
+var person = { eyes: 2, feet: 2, hands: 2, eyeColor: "blue", active: true };
+
+for (var key in person) {
+  console.log(key);
+}
+
+var person = { eyes: 2, feet: 2, hands: 2, eyeColor: "blue", active: true };
+
+var keys = Object.keys(person);
+
+for (var i = 0; i < keys.length; i++) {
+  console.log(keys[i]);
+}
+    
+var person = { eyes: 2, feet: 2, hands: 2, eyeColor: "blue", active: true };
+
+var values = Object.values(person);
+
+for (var i = 0; i < values.length; i++) {
+  console.log(values[i]);
+}
+
+let arr = [2, 4, 6, 8];
+
+for (let i = 0; i < arr.length; i++) {
+  arr[i] = arr[i] * 2;
+}
+
+console.log(arr); // Output: [4, 8, 12, 16]
+
+find the duplicated in the araay
+
+const arr = [1, 2, 1, 3, 4, 2, 3];
+
+function findDuplicates(arr) {
+  const seen = new Set();
+  const duplicates = [];
+
+  for (const element of arr) {
+    if (seen.has(element)) {
+      // If the element is already in the Set, it's a duplicate.
+      duplicates.push(element);
+    } else {
+      seen.add(element);
+    }
+  }
+
+  return duplicates;
+}
+
+const duplicateElements = findDuplicates(arr);
+
+console.log(duplicateElements);
+
+Copy code
+[1, 2, 3]
+
+find the occurance 
+
+const arr = [1, 2, 1, 3, 4, 2, 3];
+
+function countOccurrences(arr) {
+  const occurrenceCount = {};
+
+  for (const element of arr) {
+    if (occurrenceCount[element]) {
+      occurrenceCount[element]++;
+    } else {
+      occurrenceCount[element] = 1;
+    }
+  }
+
+  return occurrenceCount;
+}
+
+const occurrences = countOccurrences(arr);
+
+console.log(occurrences);
+
+
+
+
+
+
+
+
+

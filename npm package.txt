@@ -1,0 +1,5 @@
+1.for different types of loader
+
+https://www.npmjs.com/package/react-content-loader 
+
+https://skeletonreact.com/

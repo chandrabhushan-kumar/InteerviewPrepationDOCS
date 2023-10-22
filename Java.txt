@@ -1,0 +1,180 @@
+Public class main {
+
+public static void main (string ards[]){
+
+//we can write coding here
+
+system.out.println("Hello word");
+
+
+
+}
+}
+
+Data types :
+
+1.Integer 0 to 9
+
+2. Float --10.3
+
+3. Double --as per float
+
+4. String - abc 
+
+5.Booleans _true or false
+
+  **  datatype variable name = data
+   ex - int age = 10
+
+java 
+
+public class MyClass {
+    public static void main(String args[]) {
+     int i=1;
+     while(i<=10){
+         
+      System.out.println(i);
+      i++;
+     }
+         
+     }
+
+    
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+    
+     for(int i=1;i<10;i++){
+         
+      System.out.println(i);
+     
+     }
+         
+     }
+
+    
+}
+Array -----
+
+int [] =arr =[1,2,,3,4,5,6]
+
+public class MyClass {
+    public static void main(String args[]) {
+    
+    int [] arr2 = {10,30,45,55};
+   int sum = 0;
+    for (int i=0; i<arr2.length; i++){
+        sum = sum+arr2[i];
+    }
+         
+      System.out.println(sum);
+      
+     
+         
+     }
+
+    
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+    
+    int [] arr2 = {1,2,4,5};
+  
+    for (int i=0; i<arr2.length; i++){
+       if (arr2[i]% 2 == 0){
+         System.out.println(arr2[i]);
+       }
+           
+           
+           
+    }
+         
+     
+      
+     
+         
+     }
+
+    
+}
+print normal pattern 
+
+000000
+000000
+000000
+000000
+000000
+
+public class MyClass {
+    public static void main(String args[]) {
+     for (int i=0;i<=4;i++){
+         for(int j=0;j<=5;j++){
+            System.out.print(0);
+         }
+          System.out.print("\n");
+         
+         
+     }
+     }
+
+         
+    
+}
+
+find the count of event number 
+find the sum of element from the array which is even
+javascript 
+
+for (let i=1;i<100;i++){
+    console.log(i)
+}
+
+let i=1;
+while (i<=10){
+    console.log(i,"afhfhffh");
+    i++
+}
+
+let arr = [1, 2, 3, 4, 5];
+for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i] * 2;
+    console.log(arr[i]);
+}
+
+let arr2 = [10,45,30,55]
+
+let sum = 0;
+for (let i=0; i<arr2.length;i++){
+    sum = sum+arr2[i]
+}
+console.log(sum)
+
+let arr =[5,4,3,8,2];
+let sum = 0;
+for (let i=0;i<arr.length; i++){
+    
+    if (arr[i]%2 !==0){
+        sum = sum+arr[i]*2;
+    }
+}
+ console.log(sum)
+
+Patteren question 
+
+start patteren 
+
+for (let i = 0; i < rows; i++) {
+  let row = '';
+  for (let j = 0; j < columns; j++) {
+    row += '*';
+  }
+  console.log(row);
+}
+
+o/p - 
+*****
+*****
+*****
+*****
