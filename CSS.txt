@@ -1,3 +1,19 @@
 What is CSS
 
 Ans - Css stands for cascading style sheet.
+Explain the different ways to include CSS in an HTML document.
+Describe the box model in CSS. How does it influence layout and design?
+Explain the difference between inline, block, inline-block, and flex display properties in CSS
+What is the difference between margin and padding in CSS?
+
+Explain the difference between position: relative, position: absolute, and position: fixed in CSS. When would you use each?
+
+What are CSS selectors? Provide examples of different types of selectors and their usage.
+
+Describe the difference between em and rem units in CSS.
+
+Explain the purpose of media queries in CSS. How do they contribute to responsive web design?
+
+What is the CSS box-shadow property used for? Provide an example of its usage.
+
+Explain the difference between display: none and visibility: hidden in CSS..

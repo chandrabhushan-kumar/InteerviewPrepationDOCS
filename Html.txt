@@ -1,3 +1,177 @@
 1.What is html
 
 Ans Html is hypertext markup language
+
+HyperText - link one text to another text is called as hyperText 
+
+2.what is elelments 
+
+An HTML element is defined by a start tag, some content, and an end tag.
+
+Ex - 1. <h1> someting </h1>
+<p></p>
+
+3.What is attributes 
+attributes is a define characteristics of elements
+attributes is ued along with html tags to define the characteristics of the element
+
+HTML attributes provide additional information about HTML elements.
+
+ex - 
+
+<a href="https://www.w3schools.com">Visit W3Schools</a>
+
+1. Absolute URL - Links to an external image that is hosted on another website. Example: src="https://www.w3schools.com/images/img_girl.jpg".
+
+Notes: External images might be under copyright. If you do not get permission to use it, you may be in violation of copyright laws. In addition, you cannot control external images; it can suddenly be removed or changed.
+
+2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
+
+Formating Tags 
+
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
+HTML Attributes
+All HTML elements can have attributes
+Attributes provide additional information about elements
+Attributes are always specified in the start tag
+Attributes usually come in name/value pairs like: name="value"
+
+
+Block level elelments are 
+
+1. <p></p>
+2.<h1></h1>
+
+</hr> -- horizonental line
+
+</br> -- break line
+Text formating 
+<strong > - for bold
+<em> --emphasize it is used to write italic text
+<u> -- underline
+<s> -- strikethrough
+<b> -- bold
+<sub > -- subscript ex -h20
+<sup> --supscript -- e= mc2
+<pre> --preformated
+<abbri> --abbrivations
+<mark >
+<small>
+<del> --
+<img src="" alt="">
+<a href="" id="" class="" title=""> -- hypertexRefernce
+
+Html entities
+
+1. 	non-breaking space			&nbsp;			&#160;
+
+2.	less than				&lt;			&#60;
+
+3.     	greater than				&gt;			&#62;
+
+What is symentic elements
+A semantic element clearly describes its meaning to both the browser and the developer.
+
+Examples of semantic elements: <form>, <table>, and <article> - Clearly defines its content.
+
+<article>
+<aside>
+<details>
+<figcaption>
+<figure>
+<footer>
+<header>
+<main>
+<mark>
+<nav>
+<section>
+<summary>
+<time>
+
+Diffrence between attributes and elements
+
+Diffrence between span and div
+
+what are self closing tags
+<img >
+</br>
+What are block and inline elements
+
+structure of html 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+
+The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+<!DOCTYPE html>: Declaration of the HTML version.
+The <html> element is the root element of an HTML page
+The <head> element contains meta information about the HTML page
+The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+The <h1> element defines a large heading
+The <p> element defines a paragraph
+
+What are the main components of an HTML document?
+
+The main components of an HTML document are the <html>, <head>, and <body> elements.
+<html>: The root element that wraps all the content on the entire page.
+<head>: Contains meta-information about the document, such as the title, links to stylesheets, and scripts.
+<body>: Contains the main content of the document that is displayed in the browser.
+
+What are semantic elements in HTML?
+
+Semantic elements are HTML elements that clearly describe their meaning in a human-readable way. Examples include <header>, <footer>, <nav>, <article>, <section>, <aside>, <main>, etc.
+
+What is the difference between <div> and <span>?
+
+<div>: Used as a block-level container to group elements for styling purposes or to define sections in a document.
+<span>: Used as an inline container to apply styles to specific portions of text or inline elements.
+
+What is the purpose of the <meta> tag in HTML?
+
+The <meta> tag is used to provide metadata about the HTML document. This can include information such as the character encoding, author, description, keywords, and viewport settings.
+
+Explain the difference between HTML and XHTML.
+
+HTML (HyperText Markup Language) is a markup language used for creating web pages. XHTML (Extensible HyperText Markup Language) is a stricter and more XML-based version of HTML. XHTML requires all elements to be properly nested, all tags to be lowercase, and all attribute values to be quoted. It also requires documents to be well-formed XML.
+
+What is the purpose of the <iframe> tag?
+
+The <iframe> tag is used to embed another HTML document within the current HTML document. It is commonly used to embed videos, maps, or other external content on a webpage.
+
+How do you link a CSS file to an HTML document?
+
+To link a CSS file, you use the <link> element within the <head> section of the HTML document. For example:
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+Explain the difference between HTML and HTML5.
+
+HTML5 is the latest version of HTML with new features like native support for video and audio, new structural elements (<header>, <footer>, etc.), canvas element for drawing graphics, and enhanced form elements.
+
+Differentiate between inline and block-level elements in HTML. Can you provide examples of each?
+
+Inline elements: These elements do not start on a new line and only take up as much width as necessary. Examples include <span>, <a>, <strong>.
+Block-level elements: These elements start on a new line and take up the full width available. Examples include <div>, <p>, <h1>.
+

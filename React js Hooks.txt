@@ -2,7 +2,7 @@
 
 Ans - Hooks used react version 16.8 or higher
 
-It allows you to use state and other React features without writing a class. Hooks are the functions which "hook into" React state and lifecycle features from function components. It does not work inside classes.
+It allows us to use state and other React features without writing a class. Hooks are the functions which "hook into" React state and lifecycle features from function components. It does not work inside classes.
 
 Hooks are backward-compatible, which means it does not contain any breaking changes. Also.
 
@@ -26,7 +26,7 @@ The useState returns a pair where the first element is the current state value/i
 					
  useState hook is a function which is used to store state value in a functional component. It accepts an argument as the initial value of the state. It returns an array with 2 elements. First element is the current value of state. Second element is a function to update the state
 
-syntax : const [intialization , function ] = useState("assign by default value") 
+syntax : const [intialization State , function ] = useState("assign by default value") 
 
 							oR
 
@@ -39,25 +39,105 @@ useEffect accepts two arguments. The second argument is optional.
 
 useEffect(<function>, <dependency>)
 
-syntax - useEffect(()=>{
+syntax - useEffect(()=>{   for class component componentDidMount
 
 }) - No dependcy pass it will run  at every render
+it will take first arrguments as a side effects.
 
  useEffect(()=>{
 
 },[]) - empty array depency, it will run only one first render  
 
- useEffect(()=>{
+ useEffect(()=>{ for class component componentDidUpdate
+
 
 },[state,props]) - runs on the first render and any time when depency values changes.
 
-CleanupFunction -   
+CleanupFunction -
+const [time,seTime] = useState('')   
 
-5.useContext - (4-9)
+useEffect(()=>{ for class component componentWillUnmount
+
+const interVal = setInteval(showDate,1000);
+
+return ()=>{
+console.log("cleanup function");
+clearlInterval(interval);
+}
+
+import React, { useEffect } from 'react';
+
+function MyComponent() {
+  useEffect(() => {
+    // This code runs when the component mounts
+
+    return () => {
+      // This code runs when the component unmounts
+      console.log('Component is unmounting...');
+      // Perform cleanup tasks here
+    };
+  }, []); // Empty dependency array means this effect only runs once, like componentDidMount
+
+  return (
+    <div>
+      <p>My Component</p>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+
+
+},[state or props])
+
+const showDate =()=>{
+setTime(new Date().toString());
+
+}
+
+5.useContext - Practice with example
    it is used to manage state globally
 
+import React, { useContext } from 'react';
 
-6.UseReducer() - it is same as useState(); 
+// Step 1: Create a context
+const ThemeContext = React.createContext('light');
+
+// Step 2: Create a component that provides the context value
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+// Step 3: Consume the context value using useContext hook
+function Toolbar() {
+  const theme = useContext(ThemeContext);
+  return (
+    <div style={{ backgroundColor: theme === 'dark' ? '#333' : '#fff', color: theme === 'dark' ? '#fff' : '#333', padding: '1rem' }}>
+      <Button />
+    </div>
+  );
+}
+
+function Button() {
+  const theme = useContext(ThemeContext);
+  return (
+    <button style={{ backgroundColor: theme === 'dark' ? '#555' : '#eee', color: theme === 'dark' ? '#fff' : '#333', padding: '0.5rem', border: 'none', borderRadius: '4px' }}>
+      {theme === 'dark' ? 'Dark' : 'Light'} Button
+    </button>
+  );
+}
+
+export default App;
+
+
+
+
+6.UseReducer() -(Practice with example) it is same as useState(); 
 
 it is also used for state management, it is used for large application for manageing the state
 it is uesd for complex state mangement logic
@@ -97,6 +177,11 @@ function Counter({initialState}) {
 
 
 7.UseRef() - it is used to directly manipulate DOM
+useRef is a used to stor the previous state also
+it is hold mutable value
+it is gives a current prperty of object
+
+we can not directly update the input value using use ref
 
 Ex- 
 
@@ -187,6 +272,52 @@ function squareNum(number){
   console.log("Squaring will be done!");
   return Math.pow(number, 2);
 }
+
+2nd example 
+
+import React, { useState, useMemo } from 'react';
+
+function ExpensiveCalculationComponent({ num }) {
+  // Define a state to hold the result of the expensive calculation
+  const [result, setResult] = useState(0);
+
+  // Use useMemo to memoize the expensive calculation
+  const expensiveResult = useMemo(() => {
+    console.log("Calculating...");
+    let total = 0;
+    for (let i = 1; i <= num; i++) {
+      total += i;
+    }
+    return total;
+  }, [num]); // Dependency array: recompute when num changes
+
+  return (
+    <div>
+      <h2>Expensive Calculation</h2>
+      <p>Result: {expensiveResult}</p>
+      <button onClick={() => setResult(result + 1)}>Increment Result</button>
+    </div>
+  );
+}
+
+function App() {
+  const [num, setNum] = useState(5);
+
+  return (
+    <div>
+      <h1>useMemo Example</h1>
+      <input
+        type="number"
+        value={num}
+        onChange={(e) => setNum(parseInt(e.target.value))}
+      />
+      <ExpensiveCalculationComponent num={num} />
+    </div>
+  );
+}
+
+export default App;
+
  
 export default App;
 
@@ -278,19 +409,528 @@ export default ParentComponent;
 11.customHooks() 
 Custom Hooks in react is a JavaScript function whose name starts with "use", and they may call other Hooks.
 
+import { useState, useEffect } from 'react';
 
-12.useImperativeHandle () -
+function useCustomHook(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  useEffect(() => {
+    // Some side effect
+    console.log('Value changed:', value);
+  }, [value]);
+
+  const increment = () => {
+    setValue(prevValue => prevValue + 1);
+  };
+
+  const decrement = () => {
+    setValue(prevValue => prevValue - 1);
+  };
+
+  return { value, increment, decrement };
+}
+
+import React from 'react';
+import useCustomHook from './useCustomHook';
+
+function MyComponent() {
+  const { value, increment, decrement } = useCustomHook(0);
+
+  return (
+    <div>
+      <p>Value: {value}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+
+export default useCustomHook;
+
+
+
+12.useImperativeHandle () 
+
+
+useImperativeHandle is a React hook that allows you to customize the instance value that is exposed when using ref with forwardRef. 
+This hook is useful when you're working with imperative APIs or libraries that expect certain methods to be present on a ref.-
+
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+
+// Child component
+const ChildComponent = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  // Expose a custom method via useImperativeHandle
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current.focus();
+    }
+  }));
+
+  return <input type="text" ref={inputRef} />;
+});
+
+// Parent component
+const ParentComponent = () => {
+  const childRef = useRef(null);
+
+  const handleClick = () => {
+    // Accessing the custom method focusInput exposed by the child component
+    childRef.current.focusInput();
+  };
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleClick}>Focus Input</button>
+    </div>
+  );
+};
+
+export default ParentComponent;
+
 
 
 13 UseForwadingRef -
- 
 
+forwardRef is a higher-order component in React that allows components to pass ref through to their child components.
+This is particularly useful when you want to access or manipulate the DOM elements or component instances of child components from their parent components.
+
+Here's an example 
+
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+
+// ChildComponent that forwards its ref
+const ChildComponent = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  // Expose a method via useImperativeHandle
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
+
+  return <input type="text" ref={inputRef} />;
+});
+
+// ParentComponent
+const ParentComponent = () => {
+  const childRef = useRef(null);
+
+  const handleClick = () => {
+    // Call the focus method of the child component
+    childRef.current.focus();
+  };
+
+  return (
+    <div>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleClick}>Focus Input</button>
+    </div>
+  );
+};
+
+export default ParentComponent;
+
+ what is Lint
+
+Linting in React.js refers to the process of analyzing your code for potential errors, stylistic inconsistencies, and best practices adherence. 
+It helps maintain a consistent codebase, improves code quality, and catches bugs early in the development process.
+There are several popular linting tools and configurations used in React.js development, with ESLint being the most widely adopted. Here's a step-by-step guide to setting up ESLint for React.js:
+
+npm install eslint eslint-plugin-react --save-dev
+// .eslintrc.js
+
+module.exports = {
+  parser: '@babel/eslint-parser', // If you are using babel
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  plugins: ['react'],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  rules: {
+    // Add specific rules here
+  },
+};
 
 
  
 
 What is memoization
+
+React, memoization refers to the process of optimizing the rendering performance of functional
+components by caching the results of expensive computations. 
+React provides a built-in feature called React.memo() to memoize functional components.
+
+When a component is wrapped with React.memo(), React will automatically memoize the component and only re-render
+it if the props have changed. This is particularly useful when a component's rendering depends on expensive calculations 
+or if the component is being re-rendered frequently with the same props.
+
+React.memo is a higher-order component provided by React for optimizing the performance of functional components by memoizing the result of the component's rendering.
+It's similar to the PureComponent for class components. 
+
 What is Deep copy and shallow copy
 What is code splitting in React
 What is React fiber
+
+React Fiber represents a significant advancement in React's rendering engine, enabling better performance, concurrency, and responsiveness,
+especially in large and complex applications. However, 
+it's important to note that Fiber is primarily an internal implementation detail of React and is not directly exposed to developers in most cases. Developers interact with React's API and rely on its capabilities to handle rendering and state management efficiently.
+
+Create a form with proper validations 
+
+import React, { useState } from 'react';
+
+const Form = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validate(formData);
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      // Form submission logic
+      console.log('Form submitted:', formData);
+      setSubmitted(true);
+    }
+  };
+
+  const validate = (data) => {
+    const errors = {};
+    if (!data.name.trim()) {
+      errors.name = 'Name is required';
+    }
+    if (!data.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!data.password.trim()) {
+      errors.password = 'Password is required';
+    } else if (data.password.length < 6) {
+      errors.password = 'Password must be at least 6 characters';
+    }
+    return errors;
+  };
+
+  return (
+    <div>
+      <h2>Registration Form</h2>
+      {submitted ? (
+        <p>Form submitted successfully!</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <span className="error">{errors.name}</span>}
+          </div>
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
+};
+
+export default Form;
+
+
+import React, { useState } from 'react';
+
+const FormWithValidation = () => {
+  // State for form fields and errors
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [errors, setErrors] = useState({});
+
+  // Validation function
+  const validateForm = () => {
+    let errors = {};
+    if (!formData.username.trim()) {
+      errors.username = 'Username is required';
+    }
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!formData.password.trim()) {
+      errors.password = 'Password is required';
+    } else if (formData.password.length < 6) {
+      errors.password = 'Password must be at least 6 characters';
+    }
+    if (formData.password !== formData.confirmPassword) {
+      errors.confirmPassword = 'Passwords do not match';
+    }
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  // Event handler for form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValid = validateForm();
+    if (isValid) {
+      // Submit form data
+      console.log('Form submitted:', formData);
+    } else {
+      console.log('Form has errors. Cannot submit.');
+    }
+  };
+
+  // Event handler for input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (errors[name]) {
+      // Clear error when user starts typing
+      setErrors({ ...errors, [name]: '' });
+    }
+  };
+
+  return (
+    <div>
+      <h1>Form with Validation</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
+        </div>
+        <div>
+          <label>Email:</
+
+
+Add data in the array
+
+import React, { useState, useEffect } from 'react';
+
+const FormWithValidation = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [formDataArray, setFormDataArray] = useState([]);
+
+  useEffect(() => {
+    validateForm();
+  }, [formData]);
+
+  const validateForm = () => {
+    let errors = {};
+    let formIsValid = true;
+
+    if (!formData.username.trim()) {
+      errors.username = 'Username is required';
+      formIsValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+      formIsValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+      formIsValid = false;
+    }
+
+    if (!formData.password) {
+      errors.password = 'Password is required';
+      formIsValid = false;
+    } else if (formData.password.length < 6) {
+      errors.password = 'Password must be at least 6 characters';
+      formIsValid = false;
+    }
+
+    if (formData.confirmPassword !== formData.password) {
+      errors.confirmPassword = 'Passwords do not match';
+      formIsValid = false;
+    }
+
+    setErrors(errors);
+    setIsFormValid(formIsValid);
+  };
+
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (isFormValid) {
+      // Add form data to the array
+      setFormDataArray([...formDataArray, formData]);
+      // Clear form data
+      setFormData({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      });
+      // Perform any other actions upon successful submission
+      console.log('Form submitted:', formData);
+    } else {
+      alert('Please correct the errors in the form');
+    }
+  };
+
+  return (
+    <div>
+      <h1>Form with Validation</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          {errors.username && <span className="error">{errors.username}</span>}
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          {errors.email && <span className="error">{errors.email}</span>}
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          {errors.password && <span className="error">{errors.password}</span>}
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
+          {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>Form Data Array</h2>
+      <ul>
+        {formDataArray.map((data, index) => (
+          <li key={index}>
+            Username: {data.username}, Email: {data.email}, Password: {data.password}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default FormWithValidation;
+
+Que =
+
+ Arr = [2,5,3,11,12] target = 7 , output- [0,1]
+Sum of two number is equals to target sum. Return index of numbers, if nothing match return [].
+using javascript
+
+
+function findTwoSum(arr, target) {
+    const map = new Map();
+
+    for (let i = 0; i < arr.length; i++) {
+        const complement = target - arr[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(arr[i], i);
+    }
+
+    return [];
+}
+
+const Arr = [2, 5, 3, 11, 12];
+const target = 7;
+const result = findTwoSum(Arr, target);
+console.log(result); // Output: [0, 1]
+
+
 

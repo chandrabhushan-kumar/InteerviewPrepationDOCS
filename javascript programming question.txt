@@ -59,6 +59,48 @@ function reverseNumber(num){
 const revNumber = reverseNumber(num)
 console.log(revNumber)
 
+find the number of occurances
+
+let arr = [1, 2, 3, 1, 2, 4, 3, 2, 5, 6];
+
+function findOccurrences(arr) {
+    let occurrences = {};
+
+    arr.forEach((element) => {
+        if (occurrences[element]) {
+            occurrences[element]++;
+        } else {
+            occurrences[element] = 1;
+        }
+    });
+
+    console.log(occurrences);
+}
+
+findOccurrences(arr);
+
+find the duplicates
+
+let arr = [1,2,3,1,2,4,3,2,5,6]
+
+function findDuplicate(arr){
+    let sortedArray = arr.slice().sort();
+    let results = []
+    
+    for (let i= 0; i< sortedArray.length - 1; i++){
+        if (sortedArray[i+1] === sortedArray[i] && !results.includes(sortedArray[i])){
+            results.push(sortedArray[i])
+            
+        }
+    }
+    console.log(results)
+   
+    
+    
+   
+    
+}
+findDuplicate(arr)
 5.Integer Array
 (6, 4, 10, 3, 0, 1)
 SORT THIS ARRAY

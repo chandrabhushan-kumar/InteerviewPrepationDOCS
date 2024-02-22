@@ -80,7 +80,7 @@ Diffrence b/w null & undefined
 
 Undefined - Undefined means a variable has been declared but has yet not been assigned a value.
 
-ex - var abc ;
+ex - var abc 
 
 null - null is an assignment value. It can be assigned to a variable as a representation of no value. 
 null is a special value that represents an empty or unknown value. 
@@ -112,6 +112,7 @@ Variables defined with let have Block Scope.
 Const  - can not assign the value again
 
 Note - javascript is a case sensitive langage 
+https://www.scaler.com/topics/javascript/difference-between-var-let-and-const/
 
 javascript operaters
 
@@ -266,7 +267,7 @@ do{
 
 for-in loop
 
-Expain string & its method (3 methods per day)
+Expain string & its method
 
 
 1.slice(start, end) - 
@@ -534,6 +535,18 @@ Note - To avoid hoisting, you can run javascript in strict mode by using “use 
 x = 23; // Gives an error since 'x' is not declared
 var x; 
 
+Temperal Dead zone - 
+
+Temperal Dead zone work with let and const because we can access before intializations or decleations
+
+ex - 
+
+console.log(x);
+let x= 3;
+ReferenceError: Cannot access 'x' before initialization
+
+
+
 Difference between “ == “ and “ === “ operators.
 
 Both are comparison operators. The difference between both the operators is that “==” is used to compare values
@@ -555,6 +568,7 @@ Ex - 1
 function makeFunc() {
   const name = "Mozilla";
   function displayName() {
+	
     console.log(name);
   }
   return displayName;
@@ -683,9 +697,7 @@ ex-2
     var array2 = [...array1, 60];
     console.log(array2);
 
-Rest parameter -Rest operator: The rest parameter is converse to the spread operator. while the spread operator expands elements of an iterable, 
-the rest operator compresses them. It collects several elements. In functions when we require to pass arguments but were not sure how many we have to pass, the rest parameter makes it easier. 
-
+Rest parameter - The Rest operater is usd to put the rest of some specific user supplied values into a javascript array
 Note: There must be only one rest operator in javascript functions.
 
 Syntax:
@@ -693,6 +705,16 @@ Syntax:
 function function_name(...arguments) {
     statements;
 }
+ex 
+
+function fruits(a, ...z){
+     console.log("fruits",z)
+    
+}
+fruits("apple","bananana","orange")
+o/p = 
+
+fruits [ 'bananana', 'orange' ]
 
 Expain array & its method 
 
@@ -774,7 +796,7 @@ let fruits = ['apple', 'banana', 'cherry'];
 fruits.splice(1, 0, 'orange', 'grape'); // Inserts 'orange' and 'grape' at index 1
 // fruits is now ['apple', 'orange', 'grape', 'banana', 'cherry']
 
-9.sslice(): The slice() method in JavaScript is used to create a shallow copy of a portion of an array. 
+9.slice(): The slice() method in JavaScript is used to create a shallow copy of a portion of an array. 
 It doesn't modify the original array but returns a new array containing elements from the specified starting index to the specified ending index (excluding the ending index itself). 
 The original array remains unchanged.
 
@@ -870,10 +892,108 @@ console.log(sorted) o/p -[ 1, 2, 4, 5, 11 ]
 30.flatMap()-
 
 what is prototype chain 
+https://www.scaler.com/topics/javascript/prototype-inheritance-in-javascript
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
+
 
 Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
 
-ex - 
+or 
+
+
+Prototype inheritance in JavaScript is a mechanism by which objects in JavaScript can inherit properties and methods from other objects. 
+Every object in JavaScript has an internal property called [[Prototype]] (often referred to as the prototype), which points to another object.
+When you access a property or method on an object, JavaScript first looks for that property or method on the object itself. 
+If it doesn't find it, it looks at the object's prototype, and then the prototype's prototype, and so on until it finds the property or method or reaches the end of the prototype chain.
+
+ex - 1
+
+// Define a parent object
+const animal = {
+  type: 'unknown',
+  sound() {
+    console.log('Animal sound');
+  }
+};
+
+// Create a child object that inherits from the parent object
+const dog = Object.create(animal);
+dog.type = 'dog';
+dog.bark = function() {
+  console.log('Woof!');
+};
+
+// Accessing properties and methods
+console.log(dog.type); // Output: dog
+dog.sound(); // Output: Animal sound
+dog.bark(); // Output: Woof!
+
+ex-2
+// Define a constructor function
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Add a method to the Person prototype
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+// Create an object using the Person constructor
+let person1 = new Person('Alice', 30);
+
+// Call the sayHello method
+person1.sayHello(); // Output: Hello, my name is Alice and I am 30 years old.
+
+// Create another object using the Person constructor
+let person2 = new Person('Bob', 25);
+
+// Call the sayHello method on the second object
+person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
+
+
+
+What are object prototypes? 
+
+Prototype Chain: 
+Each object in JavaScript has a prototype, except for the base object Object.prototype, which is the final link in the prototype chain. 
+When you try to access a property or method on an object, JavaScript first looks for it on the object itself. 
+If it doesn't find it, it continues up the prototype chain until it finds the property or method or reaches the end of the chain.
+
+Prototypal Inheritance: 
+JavaScript uses prototypal inheritance, meaning objects inherit properties and methods from their prototype. This allows for code reuse and the creation of object hierarchies.
+
+Constructor Functions and Prototypes: 
+Constructor functions in JavaScript are typically used to create objects that share a common prototype. 
+When you create an object using a constructor function with the new keyword, the object's prototype is set to the constructor function's prototype.
+
+Modifying Prototypes: 
+You can add properties and methods to an object's prototype dynamically. Any object that inherits from that prototype will automatically have access to those properties and methods.
+Object.create(): The Object.create() method allows you to create a new object with a specified prototype. This method is often used to create objects with custom prototypes.
+
+
+Ex- 
+1.
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+const person1 = new Person();
+const person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
 
 what is cookies
 
@@ -931,21 +1051,235 @@ Fulfilled (Resolved): The state when the asynchronous operation is completed suc
 Rejected: The state when the asynchronous operation encounters an error. The Promise transitions to this state, and we can handle the error using .catch().
  syntax - 
 
-const myPromise = new Promise((resolve, reject) => {
-  // Asynchronous operation here
-  // If successful, call resolve(result)
-  // If there's an error, call reject(error)
-});
+// Example function that returns a promise
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        // Simulating an asynchronous operation with setTimeout
+        setTimeout(() => {
+            const success = true; // Set to false for demonstration of rejection
+            if (success) {
+                resolve("Data fetched successfully!");
+            } else {
+                reject("Error fetching data!");
+            }
+        }, 2000);
+    });
+}
+
+// Using the promise
+fetchData()
+    .then((result) => {
+        console.log(result); // Output: Data fetched successfully!
+    })
+    .catch((error) => {
+        console.error(error); // Output: Error fetching data!
+    })
+    .finally(() => {
+        console.log("Promise settled.");
+    });
+
+
+promises.all =Promise.all is a method in JavaScript that takes an array of promises and returns a single promise. 
+This new promise is fulfilled with an array of resolved values from the input promises,
+in the same order as the promises passed to Promise.all
+
+ex 
+
+// Simulated asynchronous functions returning Promises
+function asyncFunction1() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 1");
+            resolve("Result from Function 1");
+        }, 1000);
+    });
+}
+
+function asyncFunction2() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 2");
+            resolve("Result from Function 2");
+        }, 1000);
+    });
+}
+
+function asyncFunction3() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 3");
+            resolve("Result from Function 3");
+        }, 1000);
+    });
+}
+
+// Using Promise.all with an array of promises
+const promisesArray = [asyncFunction1(), asyncFunction2(), asyncFunction3()];
+
+Promise.all(promisesArray)
+    .then(results => {
+        console.log("All promises resolved:", results);
+    })
+    .catch(error => {
+        console.error("One of the promises was rejected:", error);
+    });
+
+Promises chain =
+
+A promise chain is a series of asynchronous operations where each operation returns a promise, 
+allowing you to chain multiple asynchronous calls together in a more readable and sequential manner. 
+The key feature that enables promise chaining is the fact that a promise's .then() method returns a new promise, 
+which can be further chained.
+
+ex -
+
+function asyncFunction1() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Async Function 1");
+            resolve("Result from Function 1");
+        }, 1000);
+    });
+}
+
+function asyncFunction2(data) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Async Function 2");
+            resolve(`Result from Function 2 using ${data}`);
+        }, 1000);
+    });
+}
+
+function asyncFunction3(data) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Async Function 3");
+            resolve(`Result from Function 3 using ${data}`);
+        }, 1000);
+    });
+}
+
+// Using promise chaining
+asyncFunction1()
+    .then((result1) => asyncFunction2(result1))
+    .then((result2) => asyncFunction3(result2))
+    .then((finalResult) => {
+        console.log("Final result:", finalResult);
+    })
+    .catch((error) => {
+        console.error("Error in the promise chain:", error);
+    });
+
+We can handle promise settlement using the .then() and .catch() methods on a promise 
+
+if we were to imagine a Promise.settle method, it could potentially settle an array of promises, meaning 
+it would wait for all promises in the array to either fulfill or reject, and then return an array of objects representing the outcome of each promise.
+Each object in the resulting array might contain information about whether the promise was fulfilled or rejected, and the value or reason for the fulfillment or rejection.
+
+Promise.settle = function(promises) {
+  return Promise.all(promises.map(promise =>
+    Promise.resolve(promise)
+      .then(value => ({ status: 'fulfilled', value }))
+      .catch(reason => ({ status: 'rejected', reason }))
+  ));
+};
+
 
 Explain types of functions 
+There are several types of functions, each serving different purposes. Here are some common types of functions with examples:
+1.Named Functions 
 
-There are 3 types of functions in javascript
+Named functions are defined using the function keyword followed by the function name.
+They can be accessed from anywhere within their scope.
 
-1.Named function
-2.Anonymous function
-3.Immediately invoked function expression.
+Ex :
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet('Alice'); // Output: Hello, Alice!
+
+2.Function Expressions:
+Function expressions define functions as values assigned to variables.
+They can be anonymous (without a name) or named.
+
+// Anonymous function expression
+const greet = function(name) {
+  console.log(`Hello, ${name}!`);
+};
+
+greet('Bob'); // Output: Hello, Bob!
+
+// Named function expression
+const sayHello = function greet(name) {
+  console.log(`Hello, ${name}!`);
+};
+
+sayHello('Charlie'); // Output: Hello, Charlie!
+
+3.Arrow Functions: 
+Arrow functions provide a more concise syntax compared to traditional function expressions.
+They don't have their own this, arguments, super, or new.target, making them suitable for non-method functions.
+
+const square = (x) => x * x;
+
+console.log(square(5)); // Output: 25
+
+4.Immediately Invoked Function Expressions (IIFE):
+
+IIFE is a function expression that is executed immediately after it's defined.
+They are often used to create a new scope and avoid polluting the global namespace.
+
+(function() {
+  const message = 'Hello from IIFE!';
+  console.log(message);
+})();
+
+// Output: Hello from IIFE!
+5.Higher-Order Functions:
+Higher-order functions are functions that either take other functions as arguments or return functions.
+They enable functional programming paradigms like map, filter, reduce, etc.
+
+const numbers = [1, 2, 3, 4, 5];
+
+const squaredNumbers = numbers.map((num) => num * num);
+
+console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+
+function operate(operator, a, b) {
+    return operator(a, b);
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+console.log(operate(add, 5, 3)); // Output: 8
+console.log(operate(subtract, 5, 3)); // Output: 2
 
 
+
+
+6.Generator Functions:
+Generator functions allow you to define an iterator.
+They use the function* syntax and yield keyword to pause and resume execution.
+
+function* generator() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const iterator = generator();
+
+console.log(iterator.next().value); // Output: 1
+console.log(iterator.next().value); // Output: 2
+console.log(iterator.next().value); // Output: 3
 
 Explain annonamusion function
 
@@ -972,11 +1306,42 @@ This allows you to write asynchronous code that looks more like synchronous code
 
 syntax - 
 
-async function fetchData() {
-  // Asynchronous code here
-  const data = await fetchSomeData(); // Pause until fetchSomeData() completes
-  return data; // This will be wrapped in a Promise and fulfilled
+// Example function that returns a Promise after a delay
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+// Asynchronous function using async and await
+async function exampleAsyncFunction() {
+  console.log('Start');
+
+  // Using await to pause execution until the Promise is resolved
+  await delay(2000); // This simulates a time-consuming operation (e.g., API call)
+
+  console.log('After 2 seconds');
+  
+  // Another asynchronous operation
+  await delay(1000);
+
+  console.log('After another second');
+
+  // Returning a value as if it were a synchronous function
+  return 'Done';
+}
+
+// Using the asynchronous function
+async function runExample() {
+  try {
+    const result = await exampleAsyncFunction();
+    console.log(result);
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
+
+// Calling the function that uses async/await
+runExample();
+
 
 await Expression:
 
@@ -1026,22 +1391,14 @@ async function fetchAllData() {
 async and await simplify the handling of asynchronous code, making it more readable and maintainable. 
 They have become the preferred way to work with Promises in modern JavaScript development.
 
-Expain Events;
 
-Event handlers can be used to handle and verify user input, user actions, and browser actions:
-
-Things that should be done every time a page loads
-Things that should be done when the page is closed
-Action that should be performed when a user clicks a button
-Content that should be verified when a user inputs data
-
-Ex - onClick,onmouseover,onBlur,onLoad
 
 Explain shallCopy & Deep Copy
 
 Shallow Copy - 
+
 Shallow Copy stores the references of objects to the original memory address.
-Shallow Copy reflects changes made to the new/copied object in the original object
+Shallow Copy reflects changes made to the new  object in the original object
 A shallow copy is faster.
 
 Deep Copy - 
@@ -1049,33 +1406,178 @@ Deep Copy -
  Deep copy doesn't reflect changes made to the new/copied object in the original object
  Deep copy is comparatively slower.
 
+
+Explain Events loop
+https://www.geeksforgeeks.org/what-is-an-event-loop-in-javascript/
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+
+Ex - onClick,onmouseover,onBlur,onLoad
+a. Event propagation 
+b.stop propagation
+
+Explain firstClass functions
+
+A programming language is said to have First-class functions if functions in that language are treated like other variables. 
+So the functions can be assigned to any other variable or passed as an argument or can be returned by another function.
+
+1.Assigned to variables: You can assign a function to a variable just like you would any other value.
+
+2.Passed as arguments: Functions can be passed as arguments to other functions.
+
+3.Returned from other functions: Functions can be returned as values from other functions.
+
+4.Stored in data structures: Functions can be stored in arrays, objects, or any other data structure.
+
+Ex - 
+
+// Function assigned to a variable
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+// Function passed as an argument
+function sayHello(greetingFunction, name) {
+  return greetingFunction(name);
+}
+
+console.log(sayHello(greet, 'Alice')); // Output: Hello, Alice!
+
+// Function returned from another function
+function createGreeter(greeting) {
+  return function(name) {
+    return `${greeting}, ${name}!`;
+  };
+}
+
+const greetWithHi = createGreeter('Hi');
+console.log(greetWithHi('Bob')); // Output: Hi, Bob!
+
+
+
 Expain  Event capturing & event bubbling 
 
 https://www.javatpoint.com/event-bubbling-and-capturing-in-javascript
+
+1.Event Bubbling
+While developing a webpage or a website via JavaScript, 
+the concept of event bubbling is used where the event handlers are invoked when one element is nested on to the other element and are part of the same event. 
+This technique or method is known as Event Bubbling. Thus, while performing event flow for a web page, 
+event bubbling is used. We can understand event bubbling as a sequence of calling the event handlers when one element is nested in another element, 
+and both the elements have registered listeners for the same event. So beginning from the deepest element to its parents covering all its ancestors on the way to top to bottom, 
+calling is performed.
+
+ex 
+ 
+<div id="outer">
+    <div id="inner">Click me!</div>
+</div>
+document.getElementById('outer').addEventListener('click', function() {
+    console.log('Outer div clicked');
+});
+
+document.getElementById('inner').addEventListener('click', function() {
+    console.log('Inner div clicked');
+});
+
+explanation
+
+If you click on the "inner" div, both event handlers will be triggered, first the one attached to the "inner" div, then the one attached to the "outer" div.
+
+Event Capturing
+Netscape Browser was the first to introduce the concept of Event Capturing. Event Capturing is opposite to event bubbling, 
+where in event capturing, an event moves from the outermost element to the target. Otherwise, in case of event bubbling, 
+the event movement begins from the target to the outermost element in the file. 
+Event Capturing is performed before event bubbling but capturing is used very rarely because event bubbling is sufficient to handle the event flow.
+
+Ex 
+
+<div id="outer">
+    <div id="inner">Click me!</div>
+</div>
+
+document.getElementById('outer').addEventListener('click', function() {
+    console.log('Outer div clicked');
+}, true); // The third parameter 'true' indicates capturing phase
+
+document.getElementById('inner').addEventListener('click', function() {
+    console.log('Inner div clicked');
+}, true);
+
+Explanaton
+
+In this case, clicking on the "inner" div will first trigger the event handler attached to the "outer" div (during the capturing phase), and then the one attached to the "inner" div 
+(during the bubbling phase).
+
+By default, event handlers are registered for the bubbling phase. However, you can specify the capturing phase by passing true as the third parameter to addEventListener.
+
 
 what is Temperal dead zone 
 
 https://www.educative.io/answers/what-is-the-temporal-dead-zone-in-javascript
 
-Expalin callback  
-
-https://www.simplilearn.com/tutorials/javascript-tutorial/callback-function-in-javascript#:~:text=A%20JavaScript%20callback%20is%20a,called%20as%20a%20callback%20function.
-
-Implicit Type Coercion in javascript (in detail with examples)
-
-When the value of one data type is automatically converted into another data type, it is called Implicit type coercion in javascript.
-
-Example: 
-
-var x = 4;
-
-var y = "4";
-
-x + y // Returns "44" 
-
 Expain higher order function
 
 Higher-order functions are the functions that take functions as arguments and return them by operating on other functions
+
+Explain Debounching in javascript
+
+Debouncing is a programming technique that assures that time-consuming activities do not trigger the web page's performance decreases. 
+In other words, the Debounce methods do not run when invoked. Instead, they wait a predetermined period of time until executing.
+When we call the same process again, the previous process is canceled, and the timer is reset.
+Debouncing is a method used in JavaScript to increase browser performance. There may be some features on a web page that needs time-consuming computations
+Ex- 
+const debounce = (func, wait) => {  
+  let timeout;  
+  return function mainFunction(...args) {  
+    const later = () => {  
+      clearTimeout(timeout);  
+      func(...args);  
+    };  
+    clearTimeout(timeout);  
+    timeout = setTimeout(delay, wait);  
+  };  
+};  
+
+Explain Thorthling
+
+https://medium.com/codex/throttling-in-javascript-649375f6b9f#:~:text=As%20mentioned%20in%20the%20beginning,a%20system%20or%20degrading%20performance.
+https://www.geeksforgeeks.org/javascript-throttling/
+
+Throttling in JavaScript is a technique used to limit the number of times a function is called over a specified time period. 
+It's particularly useful for performance optimization, preventing resource-intensive operations from overwhelming the browser or server with too many requests or computations in a short time frame.
+
+Throttling ensures that a function is executed at most once during a specified interval, even if it's called multiple times within that interval. 
+This helps to smooth out spikes in function calls and prevents unnecessary processing or rendering.
+
+Ex 
+
+function throttle(func, delay) {
+  let timeoutId;
+  let lastExecutedTime = 0;
+
+  return function(...args) {
+    const currentTime = Date.now();
+
+    if (currentTime - lastExecutedTime >= delay) {
+      func.apply(this, args);
+      lastExecutedTime = currentTime;
+    } else {
+      if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+          lastExecutedTime = Date.now();
+          timeoutId = null;
+        }, delay - (currentTime - lastExecutedTime));
+      }
+    }
+  };
+}
+
+
 
 Self Invoking Functions
 
@@ -1116,80 +1618,346 @@ What are generator functions?
 Generator functions are declared with a special class of functions and keywords using function*. 
 It does not execute the code, however, it returns a generator object and handles the execution.
 
-What are object prototypes? 
-Ex- 
-1.
-// constructor function
-function Person () {
-    this.name = 'John',
-    this.age = 23
+Explain Pure functions
+
+https://www.freecodecamp.org/news/what-is-a-pure-function-in-javascript-acb887375dfe/
+https://www.geeksforgeeks.org/pure-functions-in-javascript
+https://www.scaler.com/topics/pure-function-in-javascript/
+
+Explain first class function
+
+https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function
+
+Explain promisis all 
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+
+Explain ES6 features
+
+https://www.divami.com/blog/top-ecmascript-es6-features-every-javascript-developer-should-know
+
+https://www.boardinfinity.com/blog/top-10-features-of-es6/
+
+https://github.com/lukehoban/es6features
+
+Explain Memorization 
+
+https://www.freecodecamp.org/news/memoization-in-javascript-and-react/#:~:text=With%20memoization%2C%20there's%20no%20need,same%20value%20when%20required%20again.
+https://www.syncfusion.com/blogs/post/what-is-memoization-in-react.aspx
+
+
+
+Explain CallBack  and callBack hell
+
+Call Back = A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+
+
+ex 1 
+
+// Function that takes a callback
+
+function doSomethingAsync(callback) {
+    setTimeout(function () {
+        console.log("Task done!");
+        callback();
+    }, 1000);
 }
 
-// creating objects
-const person1 = new Person();
-const person2 = new Person();
+// Callback function
+function afterTask() {
+    console.log("Callback executed!");
+}
 
-// adding property to constructor function
-Person.prototype.gender = 'male';
+// Calling the function with the callback
 
-// prototype value of Person
-console.log(Person.prototype);
+doSomethingAsync(afterTask);
 
-// inheriting the property from prototype
-console.log(person1.gender);
-console.log(person2.gender);
+ex -2 
 
-what is event loop 
+// Function that takes a callback with parameters
+function calculate(a, b, callback) {
+    const result = a + b;
+    callback(result);
+}
 
-https://www.geeksforgeeks.org/what-is-an-event-loop-in-javascript/
+// Callback function with parameter
+function displayResult(result) {
+    console.log("The result is:", result);
+}
 
-Explain Dates
+// Calling the function with the callback
+calculate(5, 10, displayResult);
+
+ex-3 
+
+// Promise that resolves after a delay
+const myPromise = new Promise(function (resolve) {
+    setTimeout(function () {
+        resolve("Promise resolved!");
+    }, 2000);
+});
+
+// Using then() with a callback
+myPromise.then(function (result) {
+    console.log(result);
+});
+
+callBack hell = nested callback stacked
 
 
-Explain DOM & BOM 
-Explain Debouncing & thortling 
-what is currying
+// Example of callback hell
+asyncFunction1((error, result1) => {
+    if (error) {
+        console.error(error);
+    } else {
+        asyncFunction2(result1, (error, result2) => {
+            if (error) {
+                console.error(error);
+            } else {
+                asyncFunction3(result2, (error, result3) => {
+                    if (error) {
+                        console.error(error);
+                    } else {
+                        // ... and it goes on
+                    }
+                });
+            }
+        });
+    }
+});
 
-Expain functions 
-Expain return
-Expain Global variable V/s local varible
-Expain pure functions
-Explain Prototype
+// Simulated asynchronous functions
+function asyncFunction1(callback) {
+    setTimeout(() => {
+        console.log("Async Function 1");
+        callback(null, "Result from Function 1");
+    }, 1000);
+}
+
+function asyncFunction2(data, callback) {
+    setTimeout(() => {
+        console.log("Async Function 2");
+        callback(null, "Result from Function 2");
+    }, 1000);
+}
+
+function asyncFunction3(data, callback) {
+    setTimeout(() => {
+        console.log("Async Function 3");
+        callback(null, "Result from Function 3");
+    }, 1000);
+}
+
+ex-2
+
+// Example using Promises
+asyncFunction1()
+    .then(result1 => asyncFunction2(result1))
+    .then(result2 => asyncFunction3(result2))
+    .then(result3 => {
+        console.log("Final result:", result3);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+// Simulated asynchronous functions returning Promises
+function asyncFunction1() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 1");
+            resolve("Result from Function 1");
+        }, 1000);
+    });
+}
+
+function asyncFunction2(data) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 2");
+            resolve("Result from Function 2");
+        }, 1000);
+    });
+}
+
+function asyncFunction3(data) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Async Function 3");
+            resolve("Result from Function 3");
+        }, 1000);
+    });
+}
+
+https://medium.com/@avinashkumar151199/what-is-callback-hell-a4594574e3c7
+https://www.geeksforgeeks.org/what-to-understand-callback-and-callback-hell-in-javascript/
+https://www.simplilearn.com/tutorials/javascript-tutorial/callback-function-in-javascript#:~:text=A%20JavaScript%20callback%20is%20a,called%20as%20a%20callback%20function.
+
+Implicit Type Coercion in javascript (in detail with examples)
+
+When the value of one data type is automatically converted into another data type, it is called Implicit type coercion in javascript.
+
+Example: 
+
+var x = 4;
+
+var y = "4";
+
+x + y // Returns "44"
 
 
-Explain function expression
-explain objects 
-Explain timer function & its method
 
+
+Explain math
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
 Explain numbers
-Explain math
+
+https://www.javatpoint.com/javascript-number
+https://www.programiz.com/javascript/array
+
+Explain timer function & its method 
+
+https://www.w3schools.com/js/js_timing.asp
+
+Explian cookies 
+https://www.geeksforgeeks.org/es6-cookies/
+https://www.javascripttutorial.net/web-apis/javascript-cookies/
+
+Explain LocalStorgae
+
+https://www.freecodecamp.org/news/web-storage-localstorage-vs-sessionstorage-in-javascript/
+
+what is currying  
+
+https://builtin.com/software-engineering-perspectives/currying-javascript
+https://www.geeksforgeeks.org/what-is-currying-function-in-javascript/
+https://blog.logrocket.com/understanding-javascript-currying/
+
+Expain Global variable V/s local varible
+
+https://www.javatpoint.com/local-variable-vs-global-variable
+
+Explain function expression
+
+https://www.geeksforgeeks.org/javascript-function-expression/
+
+explain objects 
+
+https://www.javatpoint.com/javascript-objects
+
+Explain timer function & its method 
+
+https://www.javatpoint.com/javascript-timer
+https://www.tutorialrepublic.com/javascript-tutorial/javascript-timers.php
 
 
-
-
-
-
-
-
-
-
-Explain Currying
 How do you handle asynchronous operations in JavaScript? Briefly explain the concepts of callbacks, Promises, and async/await.
-How would you check the data type of a variable in JavaScript?
-t
+
+https://medium.com/@ghostsmaw/asynchronous-javascript-understanding-callbacks-promises-and-async-await-660e6f606d48#:~:
+text=Callbacks%2C%20promises%2C%20and%20the%20async,user%20interface%20and%20other%20operations.
+
+How would you check the data type of a variable in JavaScript? 
+
+https://www.freecodecamp.org/news/javascript-data-types-typeof-explained/#:~:text=typeof%20is%20a%20JavaScript%20keyword,a%20variable%20in%20your%20code.
+
 How do you create and use functions in JavaScript?
+
+https://www.javatpoint.com/how-to-write-a-function-in-javascript
+
 What is the purpose of the this keyword in JavaScript? How does it behave in different contexts?
+
+https://www.simplilearn.com/tutorials/javascript-tutorial/javascript-this-keyword#
+:~:text=%E2%80%9CThis%E2%80%9D%20keyword%20refers%20to%20an,this%E2%80%9D%20references%20the%20global%20object.
+
 What are arrow functions, and how do they differ from regular functions?
+
+https://www.geeksforgeeks.org/difference-between-regular-functions-and-arrow-functions/
+
 How do you handle errors in JavaScript? Explain the try...catch statement.
 
-What are modules in JavaScript? How do they help in organizing code?
+https://www.javatpoint.com/javascript-try-catch
+
+What are modules in JavaScript? How do they help in optimizing code?
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+https://developer.mozilla.org/en-US/docs/Learn/Performance/JavaScript
+
 What are the different ways to create objects in JavaScript, and what is the difference between them?
-what is memorizied in javascipt
+
+https://www.geeksforgeeks.org/creating-objects-in-javascript-4-different-ways/
+
 Explain for & forEach
 
+https://www.geeksforgeeks.org/difference-between-foreach-and-for-loop-in-javascript/
+https://javascript.plainenglish.io/javascript-for-loops-vs-for-each-the-difference-explained-39a1378f14d7
 
 
+
+
+Explain the difference between function declarations and function expressions in JavaScript.
+What is the purpose of the this keyword in JavaScript? How does it behave in different contexts?
+
+Explain the concept of prototypal inheritance in JavaScript.
+
+What are the different ways to create objects in JavaScript?
+
+What are arrow functions in JavaScript? How do they differ from regular functions?
+
+Arrow functions are a shorthand syntax for writing function expressions in JavaScript. 
+They provide a more concise and sometimes clearer way to define functions, 
+
+function add(a, b) {
+  return a + b;
+}
+function add(a, b) {
+  return a + b;
+}
+
+const add = (a, b) => a + b;
+
+Lexical this binding:
+
+Arrow functions do not have their own this context. Instead, they lexically bind this from their surrounding scope.
+In regular functions, this is dynamically scoped and can change based on how the function is called.
+This difference is especially significant when working with object methods or event handlers.
+
+No arguments object:
+
+Arrow functions do not have their own arguments object. Instead, they inherit arguments from their parent scope.
+Regular functions have their own arguments object, which is an array-like object containing all the arguments passed to the function.
+
+Cannot be used as constructors:
+
+Arrow functions cannot be used as constructors with the new keyword. Attempting to do so will result in a runtime error.
+Regular functions can be used as constructors to create new instances of objects.
+
+const obj = {
+  name: 'John',
+  regularFunc: function() {
+    console.log('Regular function:', this.name);
+  },
+  arrowFunc: () => {
+    console.log('Arrow function:', this.name);
+  }
+};
+
+obj.regularFunc(); // Outputs: Regular function: John
+obj.arrowFunc();   // Outputs: Arrow function: undefined (this refers to the global object)
+
+const boundRegularFunc = obj.regularFunc.bind({ name: 'Jane' });
+boundRegularFunc(); // Outputs: Regular function: Jane (bind creates a new this context)
+
+const boundArrowFunc = obj.arrowFunc.bind({ name: 'Jane' });
+boundArrowFunc();   // Outputs: Arrow function: undefined (arrow functions cannot be rebound)
+
+
+What are the different ways to iterate over objects and arrays in JavaScript?
+
+Explain the concept of scope in JavaScript. How does it affect variable accessibility?
+
+Explain the concept of scope and lexical scope in JavaScript.
 
 Find the duplicates array in a using javascript
 
@@ -1203,16 +1971,6 @@ function findDuplicates(array) {
 const duplicates = findDuplicates(myArray);
 
 console.log("Duplicate values: ", duplicates); // Output: [2, 4,5]
-
-
-
-
-
-
-
-
-
-
 
 Programes
 
@@ -1386,27 +2144,7 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log(arr); // Output: [4, 8, 12, 16]
 
-find the duplicated in the araay
 
-const arr = [1, 2, 1, 3, 4, 2, 3];
-
-function findDuplicates(arr) {
-  const seen = new Set();
-  const duplicates = [];
-
-  for (const element of arr) {
-    if (seen.has(element)) {
-      // If the element is already in the Set, it's a duplicate.
-      duplicates.push(element);
-    } else {
-      seen.add(element);
-    }
-  }
-
-  return duplicates;
-}
-
-const duplicateElements = findDuplicates(arr);
 
 console.log(duplicateElements);
 
@@ -1434,6 +2172,420 @@ function countOccurrences(arr) {
 const occurrences = countOccurrences(arr);
 
 console.log(occurrences);
+
+
+step to connect db 
+
+mongosh -u "foogo_user" -p "kjdybh936hyts472fs5r5ygs6tTFRrs578g" --authenticationDatabase "foogo_db"
+ 
+use foogo_db;
+show collections;
+exit
+for admin 
+
+cd /var/www/html/
+ls 
+cd Admin-Server/
+ls 
+cd Development/ 
+
+npm i
+npm run build
+pm2 restart all
+timedatectl
+
+
+mongod query
+
+for update many
+
+db.gamePlays.updateMany( {_id :"655f4c046186c682490f919e",_id  :"655df4edc5a70f6fe3fec78b:},{ $set: { gameStatus: 'completed'}})
+
+db.gamePlays.updateMany(
+  {
+    _id: {
+      $in: [
+    ObjectId("655f4c046186c682490f919e"), 
+    ObjectId("655df4edc5a70f6fe3fec78b")
+]
+    }
+  },
+  { $set: { gameStatus: 'completed' } }
+)
+
+for delete one 
+
+db.usersprofiles.deleteOne({ _id: ObjectId("65439a3e62acec07b3fa9891") });
+
+db.gameplays.deleteMany({
+  _id: {
+    $in: [
+      ObjectId("655f4c046186c682490f919e"),
+      ObjectId("655df4edc5a70f6fe3fec78b")
+    ]
+  }
+});
+
+
+db.usersprofiles.deleteMany({
+  _id: {
+    $in: [
+      ObjectId("654cd536f534bb1c8c5a4cd8"),
+      ObjectId("654355d0aad14e5cc3116bd0"),
+ObjectId("65437e8862acec07b3fa987f")	
+    ]
+  }
+});
+
+
+cron.schedule('*/1 * * * *', async () => {
+    try {
+        // Get the current time in the desired format
+        const now = new Date();
+        const options :any = {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        const formattedTime = now.toLocaleDateString('en-US', options);
+
+        // Find all games in the database
+        const games = await GamePlayModel.find();
+
+        games.forEach(async (game :any) => {
+            const startTime = new Date(game.startTime);
+            const endTime = new Date(game.endTime);
+
+            if (startTime <= now && now <= endTime) {
+                // Update the game status to 'inProgress' if the game is within its time frame
+                await GamePlayModel.updateOne({ _id: game._id }, { $set: { gameStatus: 'inProgress' } });
+            } else if (now > endTime) {
+                // Update the game status to 'completed' if the current time is past the game's end time
+                await GamePlayModel.updateOne({ _id: game._id }, { $set: { gameStatus: 'completed' } });
+            }
+        });
+
+        console.log("Updated game statuses.");
+
+    } catch (err) {
+        console.error('Error updating game statuses:', err);
+    }
+});
+
+for server 
+
+const currentDate' = moment().utc().format("YYYY-MM-DD HH:mm");
+
+for frentend 
+
+moment.utc().local().format('DD/MM/YYYY HH:mm');
+
+
+cron job -- before replace on server
+
+
+cron.schedule('*/1 * * * *', async () => {
+    try {
+        // const currentDate :any = moment().utc().local().format("DD/MM/YYYY, hh:mm A");
+        const currentDate :any = moment().utc().local().format("DD/MM/YYYY, hh:mm A");
+
+        console.log("currentDate",currentDate)
+        // Find all games in the database
+        const games = await GamePlayModel.find();
+
+        games.forEach(async (game :any) => {
+            const startTime = (game.startTime);
+            const endTime = (game.endTime);
+            // console.log("startTime", startTime);
+            // console.log("endTime", endTime);
+            if (startTime <= currentDate && currentDate <= endTime) {
+                // Update the game status to 'inProgress' if the game is within its time frame
+                await GamePlayModel.updateOne({ _id: game._id }, { $set: { gameStatus: 'inProgress' } });
+            } else if (currentDate > endTime) {
+                // Update the game status to 'completed' if the current time is past the game's end time
+                await GamePlayModel.updateOne({ _id: game._id }, { $set: { gameStatus: 'completed' } });
+            }
+        });
+
+        console.log("Updated game statuses.");
+
+    } catch (err) {
+        console.error('Error updating game statuses:', err);
+    }
+});
+
+find the occurance 
+
+function countOccurrences(arr) {
+  let occurrences = {};
+
+  arr.forEach((element) => {
+    if (occurrences[element]) {
+      occurrences[element]++;
+    } else {
+      occurrences[element] = 1;
+    }
+  });
+
+ console.log(occurrences)
+}
+countOccurrences(arr)
+
+{ '1': 3, '2': 2, '3': 3, '4': 1 }
+
+find the duplicates elemnts from the array 
+
+let arr = [1, 2, 3, 1, 2, 3, 1, 3, 4];
+
+const findDuplicatesArray = (arr) => {
+    let results = [];
+    let sortedArray = arr.slice().sort();
+
+    for (let i = 0; i < sortedArray.length - 1; i++) {
+        if (sortedArray[i + 1] === sortedArray[i] && !results.includes(sortedArray[i])) {
+            results.push(sortedArray[i]);
+        }
+    }
+
+    console.log("Unique duplicate elements: ", results);
+};
+
+findDuplicatesArray(arr);
+
+o/p = Unique duplicate elements:  [ 1, 2, 3 ]
+
+
+let arr = [1, 2, 3, 1, 2, 3, 1, 3, 4]
+const findDuplicatesArray = (arr)=>{
+    
+    let results =[];
+    let sortedArray = arr.slice().sort();
+    for (let i= 0;i<sortedArray.length -1; i++){
+        if(sortedArray[i+1]===sortedArray[i]){
+            results.push(sortedArray[i])
+        }
+       
+    }
+     console.log(results)
+     
+     
+}
+findDuplicatesArray(arr)
+
+[ 1, 1, 2, 3, 3 ]
+
+let arr = [1,2,3,6,4,2,1,3]
+
+const findDuplicatesArray=(arr)=>{
+    let sortedArray = arr.slice().sort();
+    let results = []
+    for (let i=0;i<sortedArray.length - 1; i++){
+        if (sortedArray[i+1] === sortedArray[i]){
+            results.push(sortedArray[i])
+        }
+    }
+    console.log(results)
+    
+}
+findDuplicatesArray(arr)
+[ 1, 2, 3 ]
+
+
+const result = countOccurrences(arr);
+console.log(result);
+
+
+Google login object 
+
+"email": "kumar30895@gmail.com",
+    "socialMediaType": "google",
+    "socialToken": 'ya29.a0AfB_byB514LDAwuwGJlDe-3OnzAGSmnxAEAqUrFqGTqeg8tjMjj5iZ19hWByCsNH1OWqRYVJ22pO64vyfxKjlfJbzYntVM-62I9FIiSU3SOK5TiinPgCijC4pZ9cHFkaww5UpZG9MojBhCgkPIB10Mr2oN-awnw7-gaCgYKAS8SARASFQHGX2MizV_uaO5_d72J0MC8Yh8SpA0169',
+    "socialId": "1p8d8rYPPEOuJoHnnwrBb1lZUsL2",
+
+ "email": "social@game.ca",
+  "socialMediaType": "apple",
+  "socialToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI0OWM1MDYyZDg5MGY1Y2U0NDllODkwYzg4ZThkZDk4YzRmZWUwYWIiLCJ0eXAiOiJKV1QifQeyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI2NTMwMTgzMjUzNjYtb3FqbTAzNW1jbmpyODFjbTFmbWs2NnI4YjV2YjdrbjUuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI2NTMwMTgzMjUzNjYtbWVyazNucDdhMWN1aGNjZGthNjBoN3YzZXJoa2hkbmkuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDQ4MjUxMDA2MDEyNTI1NzcwNjkiLCJlbWFpbCI6InNoYXNoaXJhbmphbjEwN0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IlNoYXNoaSBTaW5oYSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BRWRGVHA1LXRLQVNPemoyVDlZNkxvUEpjU1NQQnMwcDNueUhOYkM4Tk9qQjNnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlNoYXNoaSIsImZhbWlseV9uYW1lIjoiU2luaGEiLCJsb2NhbGUiOiJlbi1HQiIsImlhdCI6MTY3NjM1MDEzNywiZXhwIjoxNjc2MzUzNzM3fQCpIKmoYF3sbV_U1XtknzxszugRaXAxlWrJLTuojn6M1EvBziY-4fxgbYddo-2jg60adqgo8pXLGH2tIRGFRZ9lwvVip_WYU5S_SOZD0-6GpRDqQboJwjz_NemVJbZ0Aot0CjppRIQXJcGWAkbT-XmUmBMRSHwqAGbhd5PKBqjR1hyn-fg0QCh8OVLZVUBaBAgQHXcSIjJuS0earCgcizM0pV4I4klnl4PAZJU8MSd6FKb3Tg7_91bCjl3zbPJJCkJpHcVGErBxuhTSjPK2fR5Ols8uG0F-x5-6Fl8jLoOOG1rBs2Tf5s_eMPqxv6bu11pjkpCwL9EMM6msorO",
+  "socialId": "110341046618429680831",
+
+
+for marekt desk
+
+pm2 start bin/www --name "backend"
+
+pm2 delete all
+
+
+
+
+ foogo 
+PORT =4092
+  REACT_APP_BASE_URL=https://api.dev.foogo.io // client api url
+  REACT_APP_BASE_URL=https://api.foogo.flexsin.org //stagging api url 
+  # REACT_APP_BASE_URL=http://localhost:4091
+
+
+let x= 5;
+let y = "6";
+
+let result = x+y ;
+console.log(typeof (result));
+
+console.log("A"-"B")
+console.log("2" - "2" +2)
+
+console.log(!!0)
+console.log(!1)
+
+How to Compare Two Objects in Javascript
+
+const obj1 = {"a": 1, "b": 2};
+const obj2 = {"a": 1, "b": 2};
+
+console.log(JSON.stringify(obj1) === JSON.stringify(obj2)); // true
+
+const obj1 = {"a": 1, "b": 2};
+const obj2 = {"b": 2, "a": 1};
+
+console.log(JSON.stringify(obj1) === JSON.stringify(obj2)); // false
+
+explain pure functions 
+https://www.freecodecamp.org/news/what-is-a-pure-function-in-javascript-acb887375dfe/
+https://www.geeksforgeeks.org/pure-functions-in-javascript
+https://www.scaler.com/topics/pure-function-in-javascript/
+
+A Pure Function is a function (a block of code) that always returns the same result if the same arguments are passed. 
+It does not depend on any state or data change during a program’s execution. Rather, it only depends on its input arguments.
+
+Also, a pure function does not produce any observable side effects such as network requests or data mutation, etc.
+
+ex 
+// Pure function example
+function add(a, b) {
+  return a + b;
+}
+
+// Using the pure function
+console.log(add(2, 3)); // Output: 5
+console.log(add(2, 3)); // Output: 5
+
+Explain Impure function
+
+Impure functions in JavaScript are functions that produce side effects or rely on external factors, such as modifying variables outside of their scope, 
+interacting with the DOM, making network requests, or accessing external state. Unlike pure functions, 
+impure functions can produce different results for the same input because they are not solely determined by their arguments.
+
+// Impure function example
+let globalVariable = 0;
+
+function impureAdd(num) {
+  globalVariable += num; // Modifies external state
+  return globalVariable;
+}
+
+console.log(impureAdd(5)); // Output: 5
+console.log(impureAdd(3)); // Output: 8
+
+
+
+Lexical scoping in JavaScript
+JavaScript uses lexical scoping to resolve the variable names when a function is created inside another function. 
+It determines the function's parent scope by looking at where the function was created instead of where it was invoked.
+
+var a = 10
+var func = function (){
+var b = 20;
+    console.log("a and b is accessible (outer):", a, b);
+    var innerFunc= function (){
+        var c = 30;
+        console.log("a and b and c is accessible (inner):", a, b, c);
+    }
+    innerFunc();
+    return;
+}
+func();
+console.log("only a is accessible (global):", a);
+
+output based questions link
+
+https://developersthoughtworld.blogspot.com/2023/03/javascript-logical-output-based-interview-questions.html?lr=1
+https://github.com/lydiahallie/javascript-questions
+https://medium.com/@utkarsh.gupta0311/javascript-output-questions-to-test-your-skills-7fcc06ecd117
+https://www.codewhoop.com/blog/javascript/javascript-interview-output-questions-and-answers-101.html
+https://www.fullstack.cafe/blog/javascript-code-interview-questions
+https://www.keka.com/javascript-coding-interview-questions-and-answers
+
+
+Var arr = [2, 4, 5, 2, 8, 1, 6, 3];
+
+
+4+5 = 9 // 4 and 5
+
+All pairs whose sum should be equal to 9
+
+4 and 5, 8 and 1,  6 and 3
+
+company name -impetus technlogy.
+
+
+import React, { useState, useRef } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const intervalRef = useRef(null);
+
+  const start = () => {
+    intervalRef.current = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+    }, 1000); 
+  };
+
+  const stop = () => {
+    clearInterval(intervalRef.current);
+  };
+
+  const reset = () => {
+    clearInterval(intervalRef.current);
+    setCount(0);
+  };
+
+  return (
+    <>
+      <h1>Count: {count}</h1>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+      <button onClick={reset}>Reset</button>
+    </>
+  );
+}
+
+export default App;
+
+input= "aim sound"
+
+o/p- "mia dnuos"
+function reverseWords(input) {
+  // Split the input string into an array of words
+  const words = input.split(' ');
+
+  // Map over each word and reverse it
+  const reversedWords = words.map(word => {
+    // Split the word into an array of characters, reverse it, and join it back together
+    return word.split('').reverse().join('');
+  });
+
+  // Join the reversed words back together with spaces and return the result
+  return reversedWords.join(' ');
+}
+
+const input = "aim sound";
+const output = reverseWords(input);
+console.log(output); // Output: "mia dnuos"
+
+
+
+
 
 
 

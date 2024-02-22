@@ -184,61 +184,6 @@ return (
 Higher-order components or HOC is the advanced method of reusing the component functionality logic. .
 It's a function that takes a component and returns a new component with additional props or behavior.
 
-Syntax:
-
-const EnhancedComponent = higherOrderComponent(OriginalComponent);
-
-Ex - 1.
-
-import React, { Component } from 'react';
-
-// Define a higher-order component
-const withAuth = (WrappedComponent) => {
-  return class extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        isAuthenticated: false,
-      };
-    }
-
-    componentDidMount() {
-      // Simulate authentication logic (e.g., check if the user is logged in)
-      // For this example, we'll set isAuthenticated to true after a short delay
-      setTimeout(() => {
-        this.setState({ isAuthenticated: true });
-      }, 2000);
-    }
-
-    render() {
-      // Pass the isAuthenticated prop to the wrapped component
-      // You can also pass other props if needed
-      return <WrappedComponent isAuthenticated={this.state.isAuthenticated} {...this.props} />;
-    }
-  };
-};
-
-// Create a component that will be wrapped by the HOC
-class MyComponent extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.isAuthenticated ? (
-          <p>User is authenticated.</p>
-        ) : (
-          <p>User is not authenticated.</p>
-        )}
-      </div>
-    );
-  }
-}
-
-// Wrap MyComponent with the withAuth HOC
-const MyComponentWithAuth = withAuth(MyComponent);
-
-export default MyComponentWithAuth;
-
-
 
 14.What are the different phases of the component lifecycle? 
 
@@ -351,6 +296,13 @@ Rendering server-side helps efficiently load webpages for users with slow intern
 
 client side Rendering - client-side rendering, it’s about rendering content in the browser using JavaScript. So instead of getting all the content from the HTML document itself, a bare-bones HTML document with a JavaScript file in initial loading itself is received, which renders the rest of the site using the browser.
 
+
+Explain Syntheics events 
+
+Synthetic events in React are cross-browser wrappers around the browser’s original event. 
+Different browsers may have different names for the events. 
+They create a uniform interface that React uses to ensure that events execute consistently across browsers. 
+React normalizes this information to provide a consistent API for handling events regardless of the browser.
 
 Explain event.preventDefault()
 
@@ -495,14 +447,141 @@ Virtual DOM: Used for solving performance issues.
 
 Shadow DOM: Used for encapsulating and isolating elements.
 
-Explain all life cycle metod in React
+Explain code spliting and Lazy loading
+https://github.com/piyush-eon/react-crypto-tracker/tree/code-splitting-implementation
+
+Code-Splitting is a feature supported by bundlers like Webpack, Rollup and Browserify (via factor-bundle) 
+which can create multiple bundles that can be dynamically loaded at runtime.
+
+The React.lazy function lets you render a dynamic import as a regular component.
+
+syntax - 
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+Ex - 
+
+import React, { Suspense } from 'react';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+
+import React, { Suspense } from 'react';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </div>
+  );
+}
+
+Error boundries
+
+import React, { Suspense } from 'react';
+import MyErrorBoundary from './MyErrorBoundary';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+const MyComponent = () => (
+  <div>
+    <MyErrorBoundary>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </MyErrorBoundary>
+  </div>
+);
+Routing Base Code Spliting
+
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
+
+const App = () => (
+  <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Suspense>
+  </Router>
+);
+Explain HoC with example 
+How to create props proxy in React
+
+
+
 What is a React Fiber
-How t create props proxy in React
+
+React Fiber is not an entirely separate version of React; rather,
+it's a set of internal changes and improvements to the React core algorithm for handling the rendering and updating of components.
+React Fiber was introduced to make React more flexible and efficient, especially in scenarios with large and complex component trees.
+
+Here are some key aspects of React Fiber:
+
+Asynchronous Rendering:
+React Fiber introduces an asynchronous rendering model, 
+allowing React to work on rendering and updating components without blocking the main thread. 
+This asynchronous approach enables better handling of concurrent tasks and improves the overall responsiveness of the user interface.
+
+Incremental Rendering:
+React Fiber supports incremental rendering, breaking down the work into smaller chunks that can be spread across multiple frames. 
+This helps in maintaining a more responsive user interface, as React can prioritize and schedule different parts of the rendering process over multiple animation frames.
+
+Improved Prioritization:
+React Fiber includes a priority system for updates, enabling React to prioritize certain types of updates over others based on their urgency. 
+For example, user interactions may be prioritized to provide a more responsive feel to the application.
+
+Error Boundaries:
+With React Fiber, error boundaries are improved, making it easier to catch and handle errors within components. 
+This prevents the entire application from crashing due to a single component error.
+
+Tree Reconciliation:
+React Fiber introduces a more efficient reconciliation algorithm. 
+The reconciliation process is how React determines which parts of the virtual DOM need to be updated based on changes in component state or props. 
+The new algorithm is designed to be more predictable and interruptible, enabling better control over the rendering process.
+
+Suspense and Concurrent Mode:
+React Fiber sets the foundation for features like Suspense and Concurrent Mode. 
+Suspense allows components to "suspend" rendering while waiting for asynchronous data, improving the handling of loading states. Concurrent Mode includes features that help React apps remain responsive and adjust gracefully to varying device capabilities and network conditions.
+
+React Fiber is part of the ongoing efforts by the React team to improve the performance and capabilities of React. 
+While it brings significant changes under the hood, React developers interact with it using the same familiar React components and APIs. 
+The improvements introduced by React Fiber contribute to React's ability to handle complex and dynamic user interfaces.
+
 What is a Lifting state up in React
 
 
+"Lifting state up" is a common pattern in React where you move the state from a child component to its parent component. 
+This is done to share the state among multiple components, especially when there are several components that need access to the same piece of state data.
 
-what is use of this keyword in arrow function & callback function
+When you "lift state up," you move the state from a child component to its parent component. 
+This way, the parent component becomes the source of truth for the shared state, and it can pass down the necessary state data and functions to its child components as props.
 
 
 
@@ -598,6 +677,47 @@ const Login = () => {
     )
 }
 export default Login;
+
+Explain Suspense with example
+
+
+In React.js, Suspense is a feature that allows components to wait for something, typically data, to be ready before rendering the content. 
+It's often used with React's concurrent mode to improve user experience by showing loading indicators or fallback content while waiting for data to load.
+
+Suspense can be used with React's lazy() function to lazy-load components or with React's useTransition() hook to handle asynchronous operations like data fetching.
+
+import React, { Suspense, useState, useEffect } from 'react';
+
+// Lazy-loaded component
+const MyComponent = React.lazy(() => import('./MyComponent'));
+
+function App() {
+  const [data, setData] = useState(null);
+  const [startTransition, isPending] = useTransition();
+
+  useEffect(() => {
+    startTransition(() => {
+      fetchSomeData().then((result) => {
+        setData(result);
+      });
+    });
+  }, [startTransition]);
+
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        {isPending ? (
+          <div>Loading...</div>
+        ) : (
+          <MyComponent data={data} />
+        )}
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
 
 
 

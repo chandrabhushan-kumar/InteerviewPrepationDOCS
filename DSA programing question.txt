@@ -51,3 +51,88 @@ for (let i = 1; i <=rows; i++) {
     console.log(print); // Move to the next line after each row
 }
 
+
+A
+B C
+C D E
+D E F G
+
+function printPattern(rows) {
+    let currentChar = 'A';
+
+    for (let i = 0; i < rows; i++) {
+        let row = '';
+
+        for (let j = 0; j <= i; j++) {
+            row += currentChar + ' ';
+            currentChar = String.fromCharCode(currentChar.charCodeAt(0) + 1); 
+        }
+
+        console.log(row);
+    }
+}
+
+printPattern(4);
+
+E
+D E
+C D E
+B C D E
+A B C D E
+
+function printPattern(rows) {
+    for (let i = 0; i < rows; i++) {
+        let line = '';
+        for (let j = rows - i; j <= rows; j++) {
+            line += String.fromCharCode(64 + j) + ' ';
+        }
+
+        console.log(line);
+    }
+}
+
+printPattern(5);
+
+H
+G H
+F G H
+E F G H
+D E F G H
+C D E F G H
+B C D E F G H
+A B C D E F G H
+
+function printPattern(rows) {
+    for (let i = 0; i < rows; i++) {
+        let line = '';
+        for (let j = rows - i + 1; j <= rows; j++) {
+            line += String.fromCharCode(64 + j) + ' ';
+        }
+
+        console.log(line);
+    }
+}
+
+printPattern(8);
+
+G
+F G
+E F G
+D E F G
+C D E F G
+B C D E F G
+A B C D E F G
+
+function printPattern(rows) {
+    for (let i = 0; i < rows; i++) {
+        let line = '';
+        for (let j = rows - i; j <= rows; j++) {
+            line += String.fromCharCode(64 + j) + ' ';
+        }
+
+        console.log(line);
+    }
+}
+
+printPattern(7);
+
